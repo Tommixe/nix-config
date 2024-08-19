@@ -1,0 +1,53 @@
+keys:
+  # Users
+  - &users:
+    - &user01 age1cs35x2jepylsxg0ftml0ht327tjq4vcrh4v6fasagq8f5k9hacjq4pnde8
+  # Hosts
+  - &hosts:
+    - &server01 age1z8f04yxkhz98k45gml7zdge9s0vx83lyvg6jq6wuyt7f8fy05p6sms4fek
+    - &server02 age1u0ap2cpel4dph65qtuc72r45n79exvjx8xyll6m5mx7c2pq03vwqps9q5v
+    - &dev01 age1rdpjdlkruh7h0n46gzr30c53avd42pe67vs470jejnwf65zt0sqsk5srm4
+    - &hpx360 age1kgurqmcjnhqx2pxvnj7aq0ylrtamacwypk3qf35y6td5whtqdeksd7jkdy
+    - &ws01 age1f5fmct6sts4fy885zqtntu485hr0ju3ara02ph6wshzws6hkvg3scpjzqd
+    - &cloud01 age1nx9xnrcx37z5a2nhhhatcwvejscpqpf68akkx8rgqed5lxdseu8sgfg8h5
+    - &rpi01 age1js2k3gjaarfrqtcm6n00htchy350n28wfk5llpdwuuesv3t8zexqr5fldd
+
+creation_rules:
+  - path_regex: hosts/server01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *server01
+      - *user01
+  - path_regex: hosts/dev01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *dev01
+      - *user01
+  - path_regex: hosts/ws01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *ws01
+      - *user01
+  - path_regex: hosts/cloud01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *cloud01
+      - *user01
+  - path_regex: hosts/rpi01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *rpi01
+      - *user01       
+
+  - path_regex: hosts/common/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *server01
+      - *server02
+      - *dev01
+      - *hpx360
+      - *ws01
+      - *user01
+      - *cloud01
+      - *rpi01
+

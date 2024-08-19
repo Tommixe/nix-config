@@ -1,0 +1,26 @@
+{
+    "main": {
+         "enabled": 0,
+         "type": 1,
+         "hidden": false,
+         "description": "Build main branch",
+         "flake": "github:Tommixe/nix-config/main",
+         "checkinterval": 60,
+         "schedulingshares": 10,
+         "enableemail": false,
+         "emailoverride": "",
+         "keepnr": 2
+     },
+    "next": {
+         "enabled": 1,
+         "type": 1,
+         "hidden": false,
+         "description": "Build next branch",
+         "flake": "github:Tommixe/nix-config/next",
+         "checkinterval": 60,
+         "schedulingshares": 5,
+         "enableemail": false,
+         "emailoverride": "",
+         "keepnr": 1
+     }
+}
