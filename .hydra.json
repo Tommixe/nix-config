@@ -1,6 +1,6 @@
 {
     "main": {
-         "enabled": 0,
+         "enabled": 1,
          "type": 1,
          "hidden": false,
          "description": "Build main branch",
