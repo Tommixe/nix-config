@@ -39,7 +39,7 @@ in
           Include ${config.sops.secrets.hydra-gh-auth.path}
           max_unsupported_time = 30
           <runcommand>
-            job = nix-config:main:*
+            job = *:main:*
             command = ${lib.getExe release-host-branch}
           </runcommand>
         '';
