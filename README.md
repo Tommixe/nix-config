@@ -1,7 +1,7 @@
 [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 [![hydra status](https://img.shields.io/endpoint?url=https://hydracloud.tzero.it/job/nix-config/main/hosts.cloud01/shield)](https://hydracloud.tzero.it/jobset/nix-config/main#tabs-jobs)
 
-# My NixOS configurations
+# My NixOS configurations.
 
 Here's my NixOS/home-manager config files. Requires [Nix flakes](https://nixos.wiki/wiki/Flakes).
 Started and heavly inspired by https://github.com/Misterio77/nix-config
