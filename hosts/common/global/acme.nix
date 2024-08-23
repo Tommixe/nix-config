@@ -1,13 +1,13 @@
 { lib, config, ... }:
+let
+   obfuscate =
+    email: lib.strings.concatStrings (lib.reverseList (lib.strings.stringToCharacters email));
+in
 {
   # Enable acme for usage with nginx vhosts
   security.acme = {
-    defaults.email = "cat ${config.sops.secrets.user01-email01.path}";
+    defaults.email = obfuscate "ti.orez@emca";
     acceptTerms = true;
-  };
-
-  sops.secrets.user01-email01 = {
-    sopsFile = ../secrets.yaml;
   };
 
   environment.persistence = {
