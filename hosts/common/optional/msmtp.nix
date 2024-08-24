@@ -11,7 +11,7 @@
         tls_starttls = false;
         tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
         host = "cat ${config.sops.secrets.msmtp-host.path}";
-        port = "cat ${config.sops.secrets.msmtp-port.path}";
+        port = 465; #"cat ${config.sops.secrets.msmtp-port.path}";
         user = "cat ${config.sops.secrets.msmtp-user.path}";
         passwordeval = "cat ${config.sops.secrets.msmtp-passwordeval.path}";
         from = "cat ${config.sops.secrets.msmtp-from.path}";
