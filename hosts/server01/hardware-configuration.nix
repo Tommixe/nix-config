@@ -41,34 +41,17 @@
   };
 
   fileSystems."/srv/ncdata" = {
-    device = "cat ${config.sops.secrets.ip-node2.path}" + ":/ottodata/nextcloud";
+    device = "mox.tzero.lan:/ottodata/nextcloud";
     fsType = "nfs";
     options = [ "nfsvers=4.2" ];
   };
 
   fileSystems."/srv/multimedia" = {
-    device = "cat ${config.sops.secrets.ip-node2.path}" + ":/ottodata/data";
+    device = "mox.tzero.lan:/ottodata/data";
     fsType = "nfs";
     options = [ "nfsvers=4.2" ];
   };
 
-  sops.secrets = {
-    ip-node2 = {
-      sopsFile = ../common/secrets.yaml;
-    };
-  };
-
-  /*
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-label/ESP";
-      fsType = "vfat";
-    };
-
-    swapDevices = [{
-      device = "/dev/disk/by-label/swap";
-      size = 3048;
-    }];
-  */
 
   hardware.cpu.intel.updateMicrocode = true;
 
