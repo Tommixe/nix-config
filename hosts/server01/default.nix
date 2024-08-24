@@ -15,7 +15,7 @@
     ../common/optional/gh-token.nix
     ../common/optional/duplicacy.nix
     ../common/optional/msmtp.nix
-    ../common/optional/tailscale-server.nix
+    #../common/optional/tailscale-server.nix
   ];
 
   # Static IP address
