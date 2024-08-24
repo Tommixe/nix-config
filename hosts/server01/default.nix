@@ -24,24 +24,7 @@
     useDHCP = true;
     interfaces.ens18 = {
       useDHCP = true;
-      wakeOnLan.enable = true;
-
-      ipv4.addresses = [
-        {
-          address = "cat ${config.sops.secrets.ip-server01.path}";
-          prefixLength = 24;
-        }
-      ];
-      #ipv6.addresses = [{
-      #  address = "2804:14d:8084:a484::1";
-      #  prefixLength = 64;
-      #}];
-    };
-  };
-
-  sops.secrets = {
-    ip-server01 = {
-      sopsFile = ../common/secrets.yaml;
+      wakeOnLan.enable = true; 
     };
   };
 
