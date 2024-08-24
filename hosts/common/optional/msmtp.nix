@@ -23,9 +23,9 @@
     msmtp-host = {
       sopsFile = ../secrets.yaml;
     };
-    msmtp-port = {
-      sopsFile = ../secrets.yaml;
-    };
+    #msmtp-port = {
+    #  sopsFile = ../secrets.yaml;
+    #};
     msmtp-user = {
       sopsFile = ../secrets.yaml;
     };
