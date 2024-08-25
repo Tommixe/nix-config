@@ -118,13 +118,6 @@
                 icon = "https://avatars.githubusercontent.com/u/5754857?s=200&v=4";
               }
             ];
-            "" = [
-              {
-                abbr = "";
-                href = "";
-                icon = "";
-              }
-            ];
           }
         ];
       }
