@@ -266,6 +266,7 @@
         search = {
           provider = "brave, google, duckduckgo";
           focus = "false";
+          showSearchSuggestions = "true"; #it is optional but seems required by nix module
           target = "_blank";
         };
       }
