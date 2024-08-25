@@ -15,6 +15,8 @@
                 icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Brave_lion_icon.svg/204px-Brave_lion_icon.svg.png";
               }
             ];
+          }
+          {     
             PerplexitiAI = [
               {
                 abbr = "PAI";
@@ -22,6 +24,8 @@
                 icon = "https://spynewsletter.com/wp-content/uploads/2023/11/perplexity-logo.webp";
               }
             ];
+          }
+          { 
             "NixOS Search" = [
               {
                 abbr = "NS";
@@ -29,6 +33,8 @@
                 icon = "https://nixos.org/logo/nix-wiki.png";
               }
             ];
+          }
+          { 
             Google = [
               {
                 abbr = "G";
@@ -49,6 +55,8 @@
                 icon = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
               }
             ];
+          }
+          { 
             "NixOS Wiki" = [
               {
                 abbr = "NW";
@@ -56,6 +64,8 @@
                 icon = "https://nixos.wiki/images/thumb/2/20/Home-nixos-logo.png/207px-Home-nixos-logo.png";
               }
             ];
+          }
+          {  
             "Nixpkgs Pull Request Tracker" = [
               {
                 abbr = "NPR";
@@ -63,6 +73,8 @@
                 icon = "https://nixos.org/logo/nix-wiki.png";
               }
             ];
+          }
+          {
             "Nixpkgs" = [
               {
                 abbr = "NP";
@@ -70,6 +82,8 @@
                 icon = "https://nixos.org/logo/nix-wiki.png";
               }
             ];
+          }
+          { 
             "Arch Wiki" = [
               {
                 abbr = "AW";
@@ -77,6 +91,8 @@
                 icon = "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://wiki.archlinux.org&size=128";
               }
             ];
+          }
+          {  
             "ChatGPT" = [
               {
                 abbr = "CG";
@@ -97,6 +113,8 @@
                 icon = "https://www.iconpacks.net/icons/2/free-reddit-logo-icon-2436-thumb.png";
               }
             ];
+          }
+          { 
             "Proton Mail" = [
               {
                 abbr = "PM";
@@ -104,6 +122,8 @@
                 icon = "https://play-lh.googleusercontent.com/99IPL5W1HvN1TM7awcJ2gihUie-LQ5Ae7W9g0FgCBFJ8hNZnFIOJElyBPNcx4Wcx7A";
               }
             ];
+          }
+          { 
             "Tuta Mail" = [
               {
                 abbr = "TU";
@@ -111,6 +131,8 @@
                 icon = "https://upload.wikimedia.org/wikipedia/commons/d/d8/Tutanota-logo.png";
               }
             ];
+          }
+          {
             "Infomaniak" = [
               {
                 abbr = "IK";
@@ -131,6 +153,8 @@
                 icon = "https://www.iconpacks.net/icons/2/free-youtube-logo-icon-2431-thumb.png";
               }
             ];
+          }
+          {
             "Netflix" = [
               {
                 abbr = "NT";
@@ -138,6 +162,8 @@
                 icon = "https://dwglogo.com/wp-content/uploads/2019/02/netflix_emblem_transparent-1024x854.png";
               }
             ];
+          }
+          {
             "Prime Video" = [
               {
                 abbr = "PV";
@@ -159,14 +185,20 @@
               href = "cat ${config.sops.secrets.ha-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/homeassistant.svg";
             };
+          }
+          {
             "Nextcloud" = {
               href = "cat ${config.sops.secrets.nc-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/nextcloud.png";
             };
+          }
+          {
             "Dockge" = {
               href = "cat ${config.sops.secrets.dockge-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/dockge.svg";
             };
+          }
+          {
             "Portainer" = {
               href = "cat ${config.sops.secrets.portainer-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/portainer.svg";
@@ -181,22 +213,32 @@
               href = "cat ${config.sops.secrets.router-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/pfsense.svg";
             };
+          }
+          { 
             "NODE1" = {
               href = "cat ${config.sops.secrets.node1-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/proxmox.png";
             };
+          }
+          {
             "NODE2" = {
               href = "cat ${config.sops.secrets.node2-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/proxmox.png";
             };
+          }
+          {
             "BKP" = {
               href = "cat ${config.sops.secrets.bkp-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/proxmox.png";
             };
+          }
+          {
             "AP" = {
               href = "cat ${config.sops.secrets.ap-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/netgearorbi.png";
             };
+          }
+          {
             "VoIP" = {
               href = "cat ${config.sops.secrets.voip-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/3cxvoip.png";
@@ -211,18 +253,26 @@
               href = "cat ${config.sops.secrets.jf-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/jellyfin.svg";
             };
+          }
+          { 
             "Radarr" = {
               href = "cat ${config.sops.secrets.radarr-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/radarr.svg";
             };
+          }
+          {
             "Sonarr" = {
               href = "cat ${config.sops.secrets.sonarr-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/sonarr.svg";
             };
+          }
+          {
             "Jackett" = {
               href = "cat ${config.sops.secrets.jackett-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/jackett.png";
             };
+          }
+          {
             "Transmission" = {
               href = "cat ${config.sops.secrets.trans-url.path}";
               icon = "https://apps.heimdall.site/storage/icons/transmission.png";
@@ -242,7 +292,7 @@
     widgets = [
       {
         logo = {
-          icon = "https://camo.githubusercontent.com/8c73ac68e6db84a5c58eef328946ba571a92829b3baaa155b7ca5b3521388cc9/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67";
+          #icon = "https://camo.githubusercontent.com/8c73ac68e6db84a5c58eef328946ba571a92829b3baaa155b7ca5b3521388cc9/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67";
         };
       }
       {
