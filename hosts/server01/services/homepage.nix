@@ -264,7 +264,7 @@
       }
       {
         search = {
-          provider = "brave, google, duckduckgo";
+          provider = "brave";
           focus = "false";
           showSearchSuggestions = "true"; #it is optional but seems required by nix module
           target = "_blank";
