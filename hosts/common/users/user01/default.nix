@@ -15,6 +15,7 @@ in
         "wheel"
         "video"
         "audio"
+        "tommaso"
       ]
       ++ ifTheyExist [
         "minecraft"

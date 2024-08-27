@@ -1,8 +1,7 @@
 { config, ... }:
 
 {
-  virtualisation.oci-containers.containers = {
-    name = "homepage";
+  virtualisation.oci-containers.containers.homepage = {
     image = "ghcr.io/gethomepage/homepage:latest";
     ports = [ "3000:3000" ];
     environment = {
@@ -16,7 +15,9 @@
   };
 
   sops.secrets."homepage/service.yaml" = {
-    owner = "tommaso";
+    sopsFile = ../secrets.yaml;
+    owner = config.users.users.user01.name;
+    group = config.users.users.user01.group;
     path = "/srv/docker-apps/homepage/service.yaml";
   };
 

@@ -7,6 +7,7 @@
     ./jackett.nix
     ./transmission.nix
     ./homepage.nix
+    ./homepage-docker.nix
     #./cockpit.nix
     #./nextcloud.nix
   ];
