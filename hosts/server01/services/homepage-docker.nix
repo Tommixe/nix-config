@@ -14,11 +14,11 @@
     ];
   };
 
-  sops.secrets."homepage/service.yaml" = {
+  sops.secrets."homepage/services.yaml" = {
     sopsFile = ../secrets.yaml;
     owner = config.users.users.user01.name;
     group = config.users.users.user01.group;
-    path = "/srv/docker-apps/homepage/service.yaml";
+    path = "/srv/docker-apps/homepage/services.yaml";
   };
 
   environment.persistence = {
