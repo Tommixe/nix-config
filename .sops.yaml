@@ -18,6 +18,11 @@ creation_rules:
     - age:
       - *server01
       - *user01
+  - path_regex: hosts/server01/services/docker-secrets/*.*
+    key_groups:
+    - age:
+      - *server01
+      - *user01
   - path_regex: hosts/dev01/secrets.ya?ml$
     key_groups:
     - age:
