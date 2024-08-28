@@ -18,7 +18,19 @@
     sopsFile = ../secrets.yaml;
     owner = config.users.users.user01.name;
     group = config.users.users.user01.group;
-    path = "/srv/docker-apps/homepage/services.yaml";
+    #path = "/srv/docker-apps/homepage/services.yaml";
+  };
+
+  systemd.services.copy-yaml = {
+    description = "Copy homepage dashboard yaml file in docker config dir";
+    enable = true;
+    wantedBy = [ "docker-homepage.service" ];
+    #serviceConfig = {
+    #  type = "oneshot";
+    #};
+    script = ''
+      cat /run/secrets/homepage/services.yaml > /srv/docker-apps/homepage/services.yaml
+    '';
   };
 
   environment.persistence = {
