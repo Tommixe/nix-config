@@ -24,7 +24,7 @@
   systemd.services.copy-yaml = {
     description = "Copy homepage dashboard yaml file in docker config dir";
     enable = true;
-    wantedBy = [ "docker-homepage.service" ];
+    wantedBy = [ "multi-user.target" ];
     #serviceConfig = {
     #  type = "oneshot";
     #};
