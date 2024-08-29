@@ -20,6 +20,7 @@
         "/var/lib/nixos"
         "/var/log"
         "/srv"
+        "/var/lib/nfs"
       ];
       files = [
         "/etc/machine-id"
