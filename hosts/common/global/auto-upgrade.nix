@@ -13,6 +13,7 @@ in
       "--refresh"
       "--accept-flake-config"
     ];
+    persistent = false;
     flake = "github:Tommixe/nix-config/release-${hostName}";
   };
 }
