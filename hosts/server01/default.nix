@@ -15,17 +15,13 @@
     ../common/optional/gh-token.nix
     ../common/optional/duplicacy.nix
     ../common/optional/msmtp.nix
-    ../common/optional/tailscale-server.nix
+    ../common/optional/tailscale-server-local.nix
   ];
 
   # Static IP address
   networking = {
     hostName = "server01";
     useDHCP = true;
-    interfaces.ens18 = {
-      useDHCP = true;
-      wakeOnLan.enable = true; 
-    };
   };
 
   system.stateVersion = "23.05";

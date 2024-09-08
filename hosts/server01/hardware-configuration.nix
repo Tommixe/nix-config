@@ -57,7 +57,6 @@
 
   virtualisation.hypervGuest.enable = true;
   systemd.services.hv-kvp.unitConfig.ConditionPathExists = [ "/dev/vmbus/hv_kvp" ];
-
-  networking.useDHCP = lib.mkDefault true;
+  
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
