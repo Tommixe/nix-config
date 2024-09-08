@@ -11,7 +11,6 @@
   services.tailscale = {
     extraUpFlags = [
       "--ssh"
-      "--accept-routes"
     ];
     authKeyFile = config.sops.secrets.tailscale-authkey-file.path;
   };
