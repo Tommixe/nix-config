@@ -40,7 +40,7 @@
         "video"
         "audio"
         #"tommaso"
-      ]
+      ];
 
   openssh.authorizedKeys.keys = [ (builtins.readFile ../../home/user01/ssh.pub) ];
   hashedPasswordFile = config.sops.secrets.user01-password.path;
