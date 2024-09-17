@@ -10,7 +10,7 @@
     ../common/global/fish.nix
     ../common/global/locale.nix
     ../common/global/nix.nix
-    ../common/global/openssh.nix
+    #../common/global/openssh.nix
     #../common/global/optin-persistence.nix
     #./podman.nix
     ../common/global/sops.nix
