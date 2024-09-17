@@ -44,7 +44,7 @@
 
   openssh.authorizedKeys.keys = [ (builtins.readFile ../../home/user01/ssh.pub) ];
   hashedPasswordFile = config.sops.secrets.user01-password.path;
-    packages = [ pkgs.home-manager ];
+    #packages = [ pkgs.home-manager ];
   };
 
   users.groups.tommaso.gid = 1000;
