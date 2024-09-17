@@ -25,7 +25,7 @@
   proxmoxLXC.manageHostName = true;
   networking = {
     hostName = lib.mkForce "lxc01";
-    useDHCP = lib.mkForce true;
+    #useDHCP = lib.mkForce true;
   };
 
   users.mutableUsers = false;
@@ -37,8 +37,8 @@
     extraGroups =
       [
         "wheel"
-        "video"
-        "audio"
+        #"video"
+        #"audio"
         #"tommaso"
       ];
 
