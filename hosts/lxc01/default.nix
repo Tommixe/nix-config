@@ -4,9 +4,9 @@
     "${modulesPath}/virtualisation/proxmox-lxc.nix"
 
     #../common/users/user01
-    ../common/optional/fail2ban.nix
+    #../common/optional/fail2ban.nix
     #../common/global/acme.nix
-    ../common/global/auto-upgrade.nix
+    #../common/global/auto-upgrade.nix
     ../common/global/fish.nix
     ../common/global/locale.nix
     ../common/global/nix.nix
@@ -42,7 +42,7 @@
         #"tommaso"
       ];
 
-  openssh.authorizedKeys.keys = [ (builtins.readFile ../../home/user01/ssh.pub) ];
+  #openssh.authorizedKeys.keys = [ (builtins.readFile ../../home/user01/ssh.pub) ];
   hashedPasswordFile = config.sops.secrets.user01-password.path;
     #packages = [ pkgs.home-manager ];
   };
