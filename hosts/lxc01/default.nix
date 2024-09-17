@@ -50,7 +50,7 @@
   users.groups.tommaso.gid = 1000;
 
   sops.secrets.user01-password = {
-    sopsFile = ../../secrets.yaml;
+    sopsFile = ../common/secrets.yaml;
     neededForUsers = true;
   };
 
