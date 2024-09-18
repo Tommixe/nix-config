@@ -22,6 +22,7 @@
 
   ];
 
+  proxmoxLXC.enable = true;
   proxmoxLXC.manageHostName = true;
   networking = {
     hostName = lib.mkForce "lxc01";
