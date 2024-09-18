@@ -47,7 +47,7 @@
     #packages = [ pkgs.home-manager ];
   };
 
-  users.groups.tommaso.gid = 1000;
+  #users.groups.tommaso.gid = 1000;
 
   sops.secrets.user01-password = {
     sopsFile = ../common/secrets.yaml;
