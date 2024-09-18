@@ -32,7 +32,7 @@
   users.users.user01 = {
     name = "tommaso";
     isNormalUser = true;
-    uid = 1000;
+    #uid = 1000;
     #shell = pkgs.fish;
     extraGroups =
       [
