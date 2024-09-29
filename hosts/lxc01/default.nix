@@ -3,7 +3,7 @@
   imports = [
     "${modulesPath}/virtualisation/proxmox-lxc.nix"
 
-    ../common/global
+    ../common/global/default-lxc.nix
     ../common/users/user01
     ../common/optional/fail2ban.nix
 
