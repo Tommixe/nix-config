@@ -2,8 +2,13 @@
 {
   services.radarr = {
     enable = true;
-    dataDir = "/data/radarr";
     openFirewall = true;
-    #group = "tommaso";
   };
+
+  environment.persistence = {
+    "/persist".directories = [
+      "/var/lib/radarr"
+    ];
+  };
+
 }

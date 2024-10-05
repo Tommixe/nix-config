@@ -2,7 +2,13 @@
 {
   services.sonarr = {
     enable = true;
-    dataDir = "/data/sonarr";
     openFirewall = true;
   };
+
+   environment.persistence = {
+    "/persist".directories = [
+      "/var/lib/sonarr"
+    ];
+  };
+
 }
