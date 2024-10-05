@@ -14,7 +14,7 @@
     ./sops.nix
     ./ssh-serve-store.nix
     #./steam-hardware.nix
-    ./systemd-initrd.nix
+    #./systemd-initrd.nix
     ./tailscale.nix
     ./zabbix-agent.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
@@ -36,7 +36,10 @@
 
   hardware.enableRedistributableFirmware = true;
   #networking.domain = "m7.rs";
-  
+
+  # Commenting because it is not working with LXC container
+  # It is impossible to login
+  /*
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
@@ -52,5 +55,5 @@
       value = "1048576";
     }
   ];
-  
+  */
 }
