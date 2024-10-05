@@ -7,7 +7,7 @@
     ../common/users/user01
     ../common/optional/fail2ban.nix
 
-    ./services/
+    ./services
 
   ];
 
