@@ -19,7 +19,7 @@
         environment = {
           APACHE_PORT = "11000";
           APACHE_IP_BINDING= "0.0.0.0" ;
-          NEXTCLOUD_DATADIR= "/ncdata" ; #DA CAMBIARE GUARDA MP in LXC
+          NEXTCLOUD_DATADIR= "/nextcloud" ;
         };
       };
     };

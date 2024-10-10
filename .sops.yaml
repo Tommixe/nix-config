@@ -12,6 +12,7 @@ keys:
     - &cloud01 age1nx9xnrcx37z5a2nhhhatcwvejscpqpf68akkx8rgqed5lxdseu8sgfg8h5
     - &rpi01 age1js2k3gjaarfrqtcm6n00htchy350n28wfk5llpdwuuesv3t8zexqr5fldd
     - &lxc01 age1d3s3k520rsptj69rayvdyd5k28rkgx2tgpq7h9vtxe34vfm7ta2sacd28q
+    - &lxc02 age1env45y5ueq59d6344xh6unz8pmkr0g6nh0z4kavetyqjltcvlcdstcy34e
 
 creation_rules:
   - path_regex: hosts/server01/secrets.ya?ml$
@@ -49,6 +50,11 @@ creation_rules:
     - age:
       - *lxc01
       - *user01     
+  - path_regex: hosts/lxc02/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *lxc02
+      - *user01
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
@@ -62,4 +68,5 @@ creation_rules:
       - *cloud01
       - *rpi01
       - *lxc01
+      - *lxc02
 
