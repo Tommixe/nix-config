@@ -3,7 +3,7 @@
   config.virtualisation.oci-containers = {
     backend = "docker";
     containers = {
-      nextcloud = {
+      nextcloud-aio-mastercontainer = {
         image = "nextcloud/all-in-one:latest";
         ports = [ 
           "80:80" 
