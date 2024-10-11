@@ -3,7 +3,7 @@
   config.virtualisation.oci-containers = {
     backend = "docker";
     containers = {
-      dockge = {
+      nextcloud = {
         image = "nextcloud/all-in-one:latest";
         ports = [ 
           "80:80" 
