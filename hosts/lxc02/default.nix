@@ -18,6 +18,14 @@
       gid = 33;
     };
   };
+
+  users.users.multimedia = {
+    uid = 33;
+    extraGroups =
+      [
+        "www-data"
+      ]
+  };
   
   proxmoxLXC.manageHostName = true;
   networking = {
