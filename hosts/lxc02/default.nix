@@ -21,10 +21,7 @@
 
   users.users.www-data = {
     uid = 33;
-    extraGroups =
-      [
-        "www-data"
-      ];
+    group = "www-data";
   };
   
   proxmoxLXC.manageHostName = true;
