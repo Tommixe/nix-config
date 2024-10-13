@@ -19,7 +19,7 @@
     };
   };
 
-  users.users.multimedia = {
+  users.users.www-data = {
     uid = 33;
     extraGroups =
       [
