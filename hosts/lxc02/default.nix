@@ -24,7 +24,7 @@
     extraGroups =
       [
         "www-data"
-      ]
+      ];
   };
   
   proxmoxLXC.manageHostName = true;
