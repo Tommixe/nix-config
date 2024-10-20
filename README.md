@@ -10,7 +10,7 @@ Started and heavly inspired by https://github.com/Misterio77/nix-config
 
 - Multiple **NixOS configurations**, including **desktop**, **laptop**, **server**
 - **Opt-in persistence** through impermanence + blank snapshotting.
-- **Encrypted** single **BTRFS** partition
+- **Encrypted** single **BTRFS** partition.
 - Fully **declarative** **self-hosted** stuff.
 - Deployment **secrets** using **sops-nix**
 - **Mesh networked** hosts with **tailscale** and **headscale**
