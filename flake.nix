@@ -133,6 +133,14 @@
             inherit inputs outputs;
           };
         };
+        # Proxmox lxc container
+        lxc02 = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/lxc02 ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
 
       homeConfigurations = {
@@ -188,6 +196,13 @@
         };
         "user01@lxc01" = lib.homeManagerConfiguration {
           modules = [ ./home/user01/lxc01.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+        "user01@lxc02" = lib.homeManagerConfiguration {
+          modules = [ ./home/user01/lxc02.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
