@@ -12,5 +12,6 @@
     gnomeExtensions.tailscale-status
     gnome.gnome-tweaks
     gnome.gnome-software
+    gnomeExtensions.appindicator
   ];
 }
