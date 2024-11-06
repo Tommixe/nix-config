@@ -6,7 +6,7 @@
     ../common/global/default-lxc.nix
     ../common/users/user01
     ../common/optional/fail2ban.nix
-
+    ../common/optional/tailscale-server-local.nix
     ./services
 
   ];
