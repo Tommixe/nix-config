@@ -8,7 +8,7 @@
     ../common/optional/fail2ban.nix
     ../common/optional/docker.nix
     ../common/optional/portainer.nix
-
+    ../common/optional/tailscale-server-local.nix
     ./services
 
   ];
