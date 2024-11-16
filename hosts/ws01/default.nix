@@ -18,7 +18,7 @@
   
   networking = {
     hostName = "ws01";
-    useDHCP = true;
+    useDHCP = lib.mkForce true;;
   };
   
   
