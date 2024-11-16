@@ -11,6 +11,7 @@
     ../common/optional/dockge.nix
     ../common/optional/gh-token.nix
     ../common/optional/tailscale-server.nix
+    ../common/optional/tailscale-exit-node.nix
     #../common/optional/portainer.nix
   ];
 
