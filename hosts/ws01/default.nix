@@ -15,33 +15,40 @@
     #../common/optional/portainer.nix
   ];
 
-  # Static IP address
+  
   networking = {
     hostName = "ws01";
-    useDHCP = false;
-    defaultGateway = "cat ${config.sops.secrets.ip-router.path}";
-    nameservers = [
-      "cat ${config.sops.secrets.ip-ottoserver.path}"
-      "cat ${config.sops.secrets.ip-router.path}"
-      "9.9.9.9"
-    ];
-    interfaces.ens18 = {
-      #useDHCP = lib.mkDefault true;
-      wakeOnLan.enable = true;
-
-      ipv4.addresses = [
-        {
-          address = "cat ${config.sops.secrets.ip-ws01.path}";
-          prefixLength = 24;
-        }
-      ];
-
-      #ipv6.addresses = [{
-      #  address = "2804:14d:8084:a484::1";
-      #  prefixLength = 64;
-      #}];
-    };
+    useDHCP = lib.mkForce true;
   };
+  
+  
+  # # Static IP address
+  # networking = {
+  #   hostName = "ws01";
+  #   useDHCP = false;
+  #   defaultGateway = "cat ${config.sops.secrets.ip-router.path}";
+  #   nameservers = [
+  #     "cat ${config.sops.secrets.ip-ottoserver.path}"
+  #     "cat ${config.sops.secrets.ip-router.path}"
+  #     "9.9.9.9"
+  #   ];
+  #   interfaces.ens18 = {
+  #     #useDHCP = lib.mkDefault true;
+  #     wakeOnLan.enable = true;
+
+  #     ipv4.addresses = [
+  #       {
+  #         address = "cat ${config.sops.secrets.ip-ws01.path}";
+  #         prefixLength = 24;
+  #       }
+  #     ];
+
+  #     #ipv6.addresses = [{
+  #     #  address = "2804:14d:8084:a484::1";
+  #     #  prefixLength = 64;
+  #     #}];
+  #   };
+  # };
 
   networking.firewall.allowedTCPPorts = [ 3389 ];
 

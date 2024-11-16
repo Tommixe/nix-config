@@ -1,19 +1,12 @@
-{ config, inputs, ... }:
-let
-  inherit (config.networking) hostName;
-  # Only enable auto upgrade if current config came from a clean tree
-  # This avoids accidental auto-upgrades when working locally.
-  isClean = inputs.self ? rev;
-in
-{
-  system.autoUpgrade = {
-    enable = isClean;
+{inputs, config, ...}: {
+  system.hydraAutoUpgrade = {
+    # Only enable if not dirty
+    enable = inputs.self ? rev;
     dates = "hourly";
-    flags = [
-      "--refresh"
-      "--accept-flake-config"
-    ];
-    persistent = false;
-    flake = "github:Tommixe/nix-config/release-${hostName}";
+    instance = "https://hydracloud.tzero.it";
+    project = "nix-config";
+    jobset = "main";
+    job = "hosts.${config.networking.hostName}";
+    oldFlakeRef = "self";
   };
 }
