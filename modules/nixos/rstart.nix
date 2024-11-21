@@ -65,7 +65,7 @@ in
         };
     };
 
-    systemd.timers.rstart-timer =  {
+    systemd.timers.rstart-service =  {
       description = "Timer to run rstart program";
       wantedBy = [ "timers.target" ];
       timerConfig = {
