@@ -3,7 +3,7 @@
   
   services.rstart-service = {
     enable = true;
-    dates = "06:30";
+    dates = "06:03";
     passwdFilePath = config.sops.secrets.vncpassw.path;
     server =  "cat ${config.sops.secrets.amt-server.path}";
   };
