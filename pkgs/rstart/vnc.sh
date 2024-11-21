@@ -5,7 +5,7 @@
 
 vncpassw="${1:-"/run/secrets/vncpassw"}"
 server="${2:-"192.168.10.10"}"
-< "$vncpassw" | vncpasswd -f > /run/secrets/vncpasswenc
+< "$vncpassw" vncpasswd -f > /run/secrets/vncpasswenc
 xvfb-run --server-num=1 --server-args="-screen 0 1024x768x16" vncviewer -AutoSelect=0 -FullColor=0 -LowColorLevel=0 -passwd /run/secrets/vncpasswenc "$server" -display :1 &>/dev/null &
 sleep 5
 xvkbd -text "\[F2]" -display :1 -window "Intel(r) AMT KVM - TigerVNC" &>/dev/null &
