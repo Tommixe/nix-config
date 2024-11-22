@@ -32,7 +32,7 @@ in
 
       passwdFilePath = lib.mkOption {
         default = "/run/secrets/vncpassw";
-        type = with lib.types; nullOr string;
+        type = with lib.types; nullOr str;
         description = ''
           Default vnc password file path.
         '';
@@ -40,7 +40,7 @@ in
 
       serverFilePath = lib.mkOption {
         default = "/run/secrets/serverip";
-        type = with lib.types; nullOr string;
+        type = with lib.types; nullOr str;
         description = ''
           File path of the file conatining server ip which send F2 key.
         '';

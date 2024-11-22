@@ -26,7 +26,7 @@
     ../common/optional/wirelesspersist.nix
     ../common/optional/gh-token.nix
     ../common/optional/flatpak.nix
-    ../common/optional/rstart.nix
+    #../common/optional/rstart.nix
     #../common/optional/lol-acfix.nix
     #../common/optional/starcitizen-fixes.nix
   ];
