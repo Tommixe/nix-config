@@ -61,7 +61,7 @@ in
       after = [ "network-online.target" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "bash ${cfg.package}/bin/rstart ${cfg.passwdFilePath} ${cfg.serverFilePath}";
+          ExecStart = "${cfg.package}/bin/rstart ${cfg.passwdFilePath} ${cfg.serverFilePath}";
         };
     };
 
