@@ -38,11 +38,11 @@ in
         '';
         };
 
-      server = lib.mkOption {
-        default = null;
+      serverFilePath = lib.mkOption {
+        default = "/run/secrets/serverip";
         type = with lib.types; nullOr string;
         description = ''
-          Server ip which send F2 key.
+          File path of the file conatining server ip which send F2 key.
         '';
         };
     
@@ -61,7 +61,7 @@ in
       after = [ "network-online.target" ];
         serviceConfig = {
           Type = "oneshot";
-          ExecStart = "${cfg.package}/bin/rstart ${cfg.passwdFilePath} ${cfg.server}";
+          ExecStart = "${cfg.package}/bin/rstart ${cfg.passwdFilePath} ${cfg.serverFilePath}";
         };
     };
 
