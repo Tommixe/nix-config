@@ -21,6 +21,7 @@
         "/var/log"
         "/srv"
         "/var/lib/nfs"
+        "/var/lib/bluetooth"
       ];
     };
   };
