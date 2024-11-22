@@ -5,7 +5,7 @@
     enable = true;
     dates = "06:03";
     passwdFilePath = config.sops.secrets.vncpassw.path;
-    server =  config.sops.secrets.amt-server.path;
+    serverFilePath =  config.sops.secrets.amt-server.path;
   };
 
   sops.secrets.vncpassw = {
