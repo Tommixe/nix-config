@@ -8,11 +8,11 @@
   xvfb-run,
   tigervnc,
   xvkbd,
-  pidof,
+  procps,
 }:
 (writeShellApplication {
   name = "rstart";
-  runtimeInputs = [ xvfb-run tigervnc xvkbd pidof];
+  runtimeInputs = [ xvfb-run tigervnc xvkbd procps];
   text = builtins.readFile ./vnc.sh;
 })
 // {
