@@ -22,7 +22,7 @@
             #bootable = true;
             content = {
               type = "filesystem";
-              extraArgs = [ "-n EFI" ];
+              #extraArgs = [ "-n EFI" ];
               format = "vfat";
               mountpoint = "/boot";
             };
