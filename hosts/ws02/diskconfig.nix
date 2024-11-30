@@ -8,7 +8,7 @@
   disk = {
     vda = {
       type = "disk";
-      device = "/dev/sda";
+      device = "/dev/nvme0";
       content = {
         type = "gpt";
         partitions = {
