@@ -11,6 +11,7 @@
     #./features/pass
     #./features/games
     #./features/music
+    ../features/desktop/flatpak
   ];
 
   colorscheme = inputs.nix-colors.colorschemes.atelier-sulphurpool;
