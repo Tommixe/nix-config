@@ -6,13 +6,16 @@
 
     ../common/global
     ../common/users/user01
-    ../common/optional/fail2ban.nix
     ../common/optional/ephemeral-btrfs.nix
-    ../common/optional/docker.nix
-    ../common/optional/dockge.nix
+    ../common/global/tailscale.nix
+    ../common/optional/pipewire.nix
+    ../common/optional/quietboot.nix
     ../common/optional/gnome.nix
-    ../common/optional/tailscale-server.nix
-    #../common/optional/portainer.nix
+    ../common/optional/wirelesspersist.nix
+    ../common/optional/gh-token.nix
+    ../common/optional/flatpak.nix
+    
+
   ];
 
   
