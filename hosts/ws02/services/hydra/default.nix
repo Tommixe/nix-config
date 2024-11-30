@@ -100,7 +100,7 @@ in
 
   sops.secrets = {
     user01-email01 = {
-      sopsFile = ../../../common/global/secrets.yaml;
+      sopsFile = ../../../common/secrets.yaml;
     };
   };
 
