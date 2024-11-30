@@ -1,14 +1,14 @@
 {
   hostname,
   lib,
-  disks ? [ "/dev/nvme0" ],
+  disks ? [ "/dev/nvme0n1" ],
   ...
 }:
 {
   disk = {
     vda = {
       type = "disk";
-      device = "/dev/nvme0";
+      device = "/dev/nvme0n1";
       content = {
         type = "gpt";
         partitions = {
