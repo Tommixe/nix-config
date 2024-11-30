@@ -215,8 +215,8 @@
             inherit inputs outputs;
           };
         };
-        "user01@ws01" = lib.homeManagerConfiguration {
-          modules = [ ./home/user01/ws01.nix ];
+        "user01@ws02" = lib.homeManagerConfiguration {
+          modules = [ ./home/user01/ws02.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
