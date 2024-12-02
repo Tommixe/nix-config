@@ -31,7 +31,7 @@ in
       enable = true;
       hydraURL = "https://ws02hydra.tzero.it";
       notificationSender = "cat ${config.sops.secrets.user01-email01.path}";
-      listenHost = "localhost";
+      listenHost = "*";
       smtpHost = "localhost";
       useSubstitutes = true;
       extraConfig = # xml
@@ -47,24 +47,7 @@ in
         HYDRA_DISALLOW_UNFREE = "0";
       };
     };
-    nginx.virtualHosts = {
-      "ws02hydra.tzero.it" = {
-        forceSSL = true;
-        enableACME = true;
-        locations = {
-          #"~* ^/shield/([^\\s]*)".return =
-          #  "302 https://img.shields.io/endpoint?url=https://hydra.m7.rs/$1/shield";
-          "/".proxyPass = "http://localhost:${toString config.services.hydra.port}";
-          #"/".extraConfig = ''
-          #  proxy_pass http://localhost:${toString config.services.hydra.port};
-          #  proxy_set_header Host $host;
-          #  proxy_set_header X-Real-IP $remote_addr;
-          #  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          #'';  
-        };
-      };
-    };
-  };
+ };
   users.users = {
     hydra.extraGroups = [ tokenGroup ];
     hydra-queue-runner.extraGroups = [
@@ -76,6 +59,10 @@ in
       tokenGroup
     ];
   };
+
+  networking.firewall = {
+       allowedTCPPorts = [ 3000 ];
+   };
 
   systemd.services.hydra-evaluator.serviceConfig.SupplementaryGroups = [ tokenGroup ];
   systemd.services.hydra-queue-runner.serviceConfig.SupplementaryGroups = [
