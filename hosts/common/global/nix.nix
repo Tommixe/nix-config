@@ -21,7 +21,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
       ];
       warn-dirty = false;
       #access-tokens = "github.com=$(cat ${config.sops.secrets.github-token.path})" ;

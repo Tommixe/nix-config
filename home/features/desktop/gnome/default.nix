@@ -10,8 +10,9 @@
   home.packages = with pkgs; [
     gnomeExtensions.tailscale-qs
     gnomeExtensions.tailscale-status
-    gnome.gnome-tweaks
-    gnome.gnome-software
+    gnome-tweaks
+    gnome-software
     gnomeExtensions.appindicator
+    gnomeExtensions.gsconnect
   ];
 }

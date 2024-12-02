@@ -23,6 +23,8 @@
     inherit inputs outputs;
   };
 
+  home-manager.backupFileExtension = "backup";
+
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
