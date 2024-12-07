@@ -23,8 +23,6 @@
     inherit inputs outputs;
   };
 
-  home-manager.backupFileExtension = "backup";
-
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
     config = {
@@ -35,6 +33,8 @@
   };
 
   environment.enableAllTerminfo = true;
+
+  home-manager.backupFileExtension = "hm-backup" ;
 
   hardware.enableRedistributableFirmware = true;
   #networking.domain = "m7.rs";
