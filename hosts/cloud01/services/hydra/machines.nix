@@ -2,7 +2,7 @@
 let
   buildMachinesFile = (import ./lib/mk-build-machines-file.nix) [
     {
-      uri = "ssh://nix-ssh@hpx360";
+      uri = "ssh://nix-ssh@ws02";
       systems = [
         "x86_64-linux"
         "i686-linux"
