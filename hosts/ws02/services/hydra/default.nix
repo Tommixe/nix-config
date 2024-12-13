@@ -92,6 +92,8 @@ in
   };
 
   environment.persistence = {
-    "/persist".directories = [ "/var/lib/hydra" ];
+    "/persist".directories = [ "/var/lib/hydra" 
+        "/var/empty/"            
+        ];
   };
 }
