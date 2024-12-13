@@ -5,7 +5,7 @@
     #./bat.nix
     #./direnv.nix
     ./fish.nix
-    #./gh.nix
+    ./gh.nix
     ./git.nix
     #./gpg.nix
     #./nix-index.nix
