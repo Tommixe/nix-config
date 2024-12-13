@@ -24,6 +24,21 @@
     hostName = lib.mkForce "lxc01";
     useDHCP = lib.mkForce true;
   };
+
+  nixpkgs.config = {
+       # FIXME
+      #https://discourse.nixos.org/t/solved-sonarr-is-broken-in-24-11-unstable-aka-how-the-hell-do-i-use-nixpkgs-config-permittedinsecurepackages/56828/6
+      permittedInsecurePackages = [ 
+            "openssl-1.1.1u" 
+            "dotnet-runtime-wrapped-6.0.36"
+            "aspnetcore-runtime-6.0.36"
+            "aspnetcore-runtime-wrapped-6.0.36"
+            "dotnet-sdk-6.0.428"
+            "dotnet-sdk-wrapped-6.0.428"
+            "dotnet-runtime-6.0.36"
+      ];
+    };
+  
  
    system.stateVersion = "24.05";
 }
