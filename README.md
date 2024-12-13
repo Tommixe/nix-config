@@ -73,7 +73,7 @@ nix develop
 
 `nixos-rebuild --flake .` To build system configurations
 
-`home-manager --flake .` To build user configurations
+`home-manager switch --flake .` To build user configurations
 
 `nix build` (or shell or run) To build and use packages
 

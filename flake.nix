@@ -16,7 +16,7 @@
 
   inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -28,7 +28,7 @@
 
     home-manager = {
       #url = "github:nix-community/home-manager";
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprwm-contrib = {
@@ -141,6 +141,13 @@
             inherit inputs outputs;
           };
         };
+        # ws02
+        ws02 = lib.nixosSystem {
+          modules = [ ./hosts/ws02 ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
 
       homeConfigurations = {
@@ -208,6 +215,14 @@
             inherit inputs outputs;
           };
         };
+        "user01@ws02" = lib.homeManagerConfiguration {
+          modules = [ ./home/user01/ws02.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+
       };
     };
 }

@@ -11,16 +11,14 @@ let
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; })
     colorschemeFromPicture
     nixWallpaperFromScheme
-    ;
+    ;  
+  username = "tommaso";  
 in
 {
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     inputs.nix-colors.homeManagerModule
     ../../features/cli
-    #../features/desktop/gnome
-    #../features/nvim
-    #../features/helix
   ] ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
@@ -39,7 +37,6 @@ in
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
       ];
       warn-dirty = false;
     };
@@ -53,10 +50,11 @@ in
   };
 
   home = {
-    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    username = "${username}";
+    homeDirectory = lib.mkDefault "/home/${username}";
     stateVersion = lib.mkDefault "23.05";
     sessionPath = [ "$HOME/.local/bin" ];
-    persistence."/persist/home/${config.home.username}".allowOther = true;
+    persistence."/persist/home/${username}".allowOther = true;
   };
 
   colorscheme = lib.mkDefault colorSchemes.dracula;

@@ -34,6 +34,8 @@
 
   environment.enableAllTerminfo = true;
 
+  home-manager.backupFileExtension = "hm-backup" ;
+
   hardware.enableRedistributableFirmware = true;
   #networking.domain = "m7.rs";
   
