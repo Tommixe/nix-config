@@ -1,6 +1,5 @@
 {
   inputs,
-  config,
   pkgs,
   ...
 }:
@@ -18,4 +17,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.clipboard-indicator
   ];
+  
+
+
 }
