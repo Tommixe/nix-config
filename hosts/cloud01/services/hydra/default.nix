@@ -64,6 +64,12 @@ in
         };
       };
     };
+    nginx.tailscaleAuth = {
+        enable = true;
+        #expectedTailnet = config.server.tailscale.tailnet;
+        virtualHosts = ["hydracloud.tzero.it"];
+    };
+
   };
   users.users = {
     hydra.extraGroups = [ tokenGroup ];
