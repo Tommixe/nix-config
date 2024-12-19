@@ -5,11 +5,11 @@ let
   fileToList = x: lib.strings.splitString "\n" (builtins.readFile x);
   cfipv4 = fileToList (pkgs.fetchurl {
             url = "https://www.cloudflare.com/ips-v4";
-            #sha256 = "0ywy9sg7spafi3gm9q5wb59lbiq0swvf0q3iazl0maq1pj1nsb7h";
+            hash = "sha256-8Cxtg7wBqwroV3Fg4DbXAMdFU1m84FTfiE5dfZ5Onns=";
           });
  cfipv6 = fileToList (pkgs.fetchurl {
             url = "https://www.cloudflare.com/ips-v6";
-            #sha256 = "1ad09hijignj6zlqvdjxv7rjj8567z357zfavv201b9vx3ikk7cy";
+            hash = "sha256-np054+g7rQDE3sr9U8Y/piAp89ldto3pN9K+KCNMoKk=";
           });
 in
 {
