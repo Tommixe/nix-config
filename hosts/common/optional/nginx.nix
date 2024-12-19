@@ -24,11 +24,8 @@ in
       clientMaxBodySize = "300m";
       commonHttpConfig =
         ''
-          ${realIpsFromList cfipv4}
-          ${realIpsFromList cfipv6}
           ${allowList cfipv4}
           ${allowList cfipv6}
-          real_ip_header CF-Connecting-IP;
           deny all;
         '';
 
