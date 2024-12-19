@@ -1,8 +1,8 @@
 { lib, config, pkgs, ... }:
 let
   inherit (config.networking) hostName;
-  realIpsFromList = lib.strings.concatMapStringsSep "\n" (x: "set_real_ip_from  ${x};");
-  allowList = lib.strings.concatMapStringsSep "\n" (x: "allow  ${x};");
+  realIpsFromList = lib.strings.concatMapStringsSep "\n" (x: "set_real_ip_from ${x};");
+  allowList = lib.strings.concatMapStringsSep "\n" (x: "allow ${x};");
   fileToList = x: lib.strings.splitString "\n" (builtins.readFile x);
   cfipv4 = fileToList (pkgs.fetchurl {
             url = "https://www.cloudftlare.com/ips-v4";
