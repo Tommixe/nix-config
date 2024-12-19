@@ -2,12 +2,13 @@
 let
   inherit (config.networking) hostName;
   realIpsFromList = lib.strings.concatMapStringsSep "\n" (x: "set_real_ip_from  ${x};");
+  allowList = lib.strings.concatMapStringsSep "\n" (x: "allow  ${x};");
   fileToList = x: lib.strings.splitString "\n" (builtins.readFile x);
   cfipv4 = fileToList (pkgs.fetchurl {
-            url = "https://www.cloudflare.com/ips-v4";
+            url = "https://www.cloudftlare.com/ips-v4";
             hash = "sha256-8Cxtg7wBqwroV3Fg4DbXAMdFU1m84FTfiE5dfZ5Onns=";
           });
- cfipv6 = fileToList (pkgs.fetchurl {
+  cfipv6 = fileToList (pkgs.fetchurl {
             url = "https://www.cloudflare.com/ips-v6";
             hash = "sha256-np054+g7rQDE3sr9U8Y/piAp89ldto3pN9K+KCNMoKk=";
           });
@@ -25,7 +26,10 @@ in
         ''
           ${realIpsFromList cfipv4}
           ${realIpsFromList cfipv6}
+          ${allowList cfipv4}
+          ${allowList cfipv6}
           real_ip_header CF-Connecting-IP;
+          deny all;
         '';
 
 
