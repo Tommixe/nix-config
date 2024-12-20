@@ -11,6 +11,11 @@ let
             url = "https://www.cloudflare.com/ips-v6";
             hash = "sha256-np054+g7rQDE3sr9U8Y/piAp89ldto3pN9K+KCNMoKk=";
           });
+  IPv4Whitelist = [];
+  IPv6Whitelist = [];
+  allow-interface = lib.strings.concatMapStringsSep "\n" (i: ''ip46tables --append ${chain} --in-interface ${i} --jump RETURN'');
+  allow-ip = cmd: lib.strings.concatMapStringsSep "\n" (r: ''${cmd} --append ${chain} --source ${r} --jump RETURN'');
+  chain = "cloudflare-whitelist";
 in
 {
   services = {
@@ -72,13 +77,17 @@ in
   # ];
 
   # Block non-Cloudflare IP addresses.
-    networking.firewall = let
-      chain = "cloudflare-whitelist";
-    in {
-      extraCommands = let
-        allow-interface = lib.strings.concatMapStringsSep "\n" (i: ''ip46tables --append ${chain} --in-interface ${i} --jump RETURN'');
-        allow-ip = cmd: lib.strings.concatMapStringsSep "\n" (r: ''${cmd} --append ${chain} --source ${r} --jump RETURN'');
-      in ''
+    # networking.firewall = let
+    #   chain = "cloudflare-whitelist";
+    # in {
+    #   extraCommands = let
+    #     allow-interface = lib.strings.concatMapStringsSep "\n" (i: ''ip46tables --append ${chain} --in-interface ${i} --jump RETURN'');
+    #     allow-ip = cmd: lib.strings.concatMapStringsSep "\n" (r: ''${cmd} --append ${chain} --source ${r} --jump RETURN'');
+    #   in 
+      
+     networking.firewall = { 
+      extraCommands  = 
+      ''
         # Flush the old firewall rules. This behavior mirrors the default firewall service.
         # See: https://github.com/NixOS/nixpkgs/blob/ac911bf685eecc17c2df5b21bdf32678b9f88c92/nixos/modules/services/networking/firewall-iptables.nix#L59-L66
         ip46tables --delete INPUT --protocol tcp --destination-port 80  --syn --jump ${chain} 2>/dev/null || true
