@@ -86,6 +86,10 @@ in
     #   in 
       
      networking.firewall = { 
+      allowedTCPPorts = [
+          80
+          443
+        ];
       extraCommands  = 
       ''
         # Flush the old firewall rules. This behavior mirrors the default firewall service.
