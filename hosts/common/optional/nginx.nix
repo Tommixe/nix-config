@@ -114,7 +114,7 @@ in
         # TODO: I would like to use `nixos-fw-log-refuse` here, but I keep
         #       running into weird issues when reloading the firewall.
         #       Something about the table not being deleted properly.
-        ip46tables --append ${chain} -p tcp -m multiport --dports http,https --jump DROP
+        ip46tables --append ${chain} --jump DROP
 
         # Inject our chain as the first check in INPUT (before nixos-fw).
         # We want to capture any new incomming TCP connections.
