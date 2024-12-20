@@ -65,10 +65,11 @@ in
       };
     };
   };
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
+  
+  # networking.firewall.allowedTCPPorts = [
+  #   80
+  #   443
+  # ];
 
   # Block non-Cloudflare IP addresses.
     networking.firewall = let
