@@ -3,16 +3,14 @@
   lib,
   config,
   ...
-}:
+}: let
+  flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+in  
 {
   nix = {
     settings = {
-      #substituters = [
-      #  "https://cache.m7.rs"
-      #];
-      #trusted-public-keys = [
-      #  "cache.m7.rs:kszZ/NSwE/TjhOcPPQ16IuUiuRSisdiIwhKZCxguaWg="
-      #];
+      extra-substituters = lib.mkAfter ["https://cachecloud.tzero.it"];
+      extra-trusted-public-keys = ["cachecloud.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls="];
       trusted-users = [
         "root"
         "@wheel"
@@ -21,6 +19,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "ca-derivations"
       ];
       warn-dirty = false;
       #access-tokens = "github.com=$(cat ${config.sops.secrets.github-token.path})" ;
@@ -43,13 +42,9 @@
       options = "--delete-older-than 2d";
     };
 
-    # Add each flake input as a registry
-    # To make nix3 commands consistent with the flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-    # Add nixpkgs input to NIX_PATH
-    # This lets nix2 commands still use <nixpkgs>
-    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
+    # Add each flake input as a registry and nix_path
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
   /*
