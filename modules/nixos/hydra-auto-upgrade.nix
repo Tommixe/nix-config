@@ -81,7 +81,9 @@ in {
         buildUrl = "${cfg.instance}/job/${cfg.project}/${cfg.jobset}/${cfg.job}/latest";
       in
         (lib.optionalString (cfg.oldFlakeRef != null) ''
-          flake="$(curl -sLH 'accept: application/json' ${evalUrl} | jq -r '.flake')"
+          #Added "| cut -d '?' -f 1" since calling the command nix flake metadata
+          #with a github refernce that includes ?narHas... doesn't get lastmodified date.
+          flake="$(curl -sLH 'accept: application/json' ${evalUrl} | jq -r '.flake' | cut -d '?' -f 1)"
           echo "New flake: $flake" >&2
           new="$(nix flake metadata "$flake" --json | jq -r '.lastModified')"
           echo "Modified at: $(date -d @$new)" >&2
