@@ -39,7 +39,7 @@ in
       automatic = true;
       dates = "weekly";
       # Delete older generations too
-      options = "--delete-older-than 2d";
+      options = "--delete-older-than +3";
     };
 
     # Add each flake input as a registry and nix_path

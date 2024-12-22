@@ -94,7 +94,7 @@ in
   #user hydra-www is not able to connect other machine via ssh because it cannot save know keys in the ver/empty folder 
   environment.persistence = {
     "/persist".directories = [ "/var/lib/hydra" 
-        "/var/empty/"            
+        #"/var/empty/"            
         ];
   };
 }
