@@ -1,4 +1,14 @@
 # This file (and the global directory) holds config that i use on all hosts
+# This file is only for contatiner LXC, still to decide if to make onyl one
+#
+# Source: https://discourse.nixos.org/t/cannot-set-file-attributes-for-var-empty/35129/14 
+# IMPORTANT on proxmox host run for every lxc:
+# root@pve-1:~# pct mount 102
+# mounted CT 102 in '/var/lib/lxc/102/rootfs'
+# root@pve-1:~# chattr +i /var/lib/lxc/102/rootfs/var/empty
+# root@pve-1:~# pct unmount 102
+
+
 { inputs, outputs, ... }:
 {
   imports = [
