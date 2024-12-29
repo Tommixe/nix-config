@@ -39,6 +39,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
+
   };
 
   outputs =
@@ -47,6 +52,7 @@
       nixpkgs,
       home-manager,
       nix-flatpak,
+      ghostty,
       ...
     }@inputs:
     let
