@@ -74,5 +74,11 @@ in
         sha256 = "sha256-95mRJ3ZCSkLHqehFQdwM2BY0h+YDhohwpnRiF6/lZtA=";
       };
     });
+
+    #https://github.com/NixOS/nixpkgs/issues/371837
+    jackett = prev.jackett.overrideAttrs { doCheck = false; }; 
+
   };
+
+
 }
