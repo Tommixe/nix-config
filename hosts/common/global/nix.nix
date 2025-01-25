@@ -11,7 +11,7 @@ in
     settings = {
       extra-substituters = lib.mkAfter ["https://cachecloud.tzero.it"];
       extra-trusted-public-keys = [
-        "cachecloud.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls=" 
+        "cachecloud.tzero.it:0d35aEumDjIuR27iqi5FgnFPmM1ppRpsu43aQx6xcpM=" 
         "cache.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls="
       ];
       trusted-users = [
