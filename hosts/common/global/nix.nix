@@ -10,7 +10,10 @@ in
   nix = {
     settings = {
       extra-substituters = lib.mkAfter ["https://cachecloud.tzero.it"];
-      extra-trusted-public-keys = ["cachecloud.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls="];
+      extra-trusted-public-keys = [
+        "cachecloud.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls=" 
+        "cache.tzero.it:C3XpjhEEHIEz9Ygh5ZjTlv7Gh4a0In09hY66hmssDls="
+      ];
       trusted-users = [
         "root"
         "@wheel"
