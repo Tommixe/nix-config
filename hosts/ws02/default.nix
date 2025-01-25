@@ -53,8 +53,7 @@
   #   };
   # };
 
-  #allow rdp
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+ 
   #allow gsconnect
   networking.firewall = rec {
     allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
