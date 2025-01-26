@@ -17,6 +17,7 @@
     ./systemd-initrd.nix
     ./tailscale.nix
     ./zabbix-agent.nix
+    ./nh.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
   home-manager.extraSpecialArgs = {
