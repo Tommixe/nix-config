@@ -14,7 +14,7 @@
     diffsitter # Better diff
     jq # JSON pretty printer and manipulator
     #trekscii # Cute startrek cli printer
-    terraform
+    opentofu
     nil # Nix LSP
     nixfmt-rfc-style # Nix formatter
     nix-inspect # See which pkgs are in your PATH
