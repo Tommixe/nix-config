@@ -1,11 +1,10 @@
 {
-  pkgs ? import <nixpkgs> { },
+  pkgs ? import <nixpkgs> { config.allowUnfree = true; },
   ...
 }:
-{
-  default = pkgs.mkShell {
+  pkgs.mkShell {
     NIX_CONFIG = "extra-experimental-features = nix-command flakes ca-derivations";
-    nativeBuildInputs = with pkgs; [
+    packages = with pkgs; [
       nix
       home-manager
       git
@@ -13,6 +12,7 @@
       ssh-to-age
       gnupg
       age
+      opentofu
+      bws
     ];
-  };
 }
