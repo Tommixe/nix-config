@@ -186,6 +186,13 @@
             inherit inputs outputs;
           };
         };
+        "user02@hpx360" = lib.homeManagerConfiguration {
+          modules = [ ./home/user02/hpx360.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
         "user01@ws01" = lib.homeManagerConfiguration {
           modules = [ ./home/user01/ws01.nix ];
           pkgs = pkgsFor.x86_64-linux;
