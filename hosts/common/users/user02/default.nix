@@ -23,6 +23,8 @@
     neededForUsers = true;
   };
 
+   home-manager.users.user02 = import ../../../../home/user02/${config.networking.hostName}.nix;
+
   # Persist entire home
   environment.persistence = {
     "/persist".directories = [ "/home/federico" ];
