@@ -14,6 +14,7 @@
     ../common/optional/wirelesspersist.nix
     ../common/optional/gh-token.nix
     ../common/optional/flatpak.nix
+    ../common/optional/printerhp.nix
     
 
   ];
