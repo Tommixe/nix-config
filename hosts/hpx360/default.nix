@@ -29,6 +29,8 @@
     #../common/optional/rstart.nix
     #../common/optional/lol-acfix.nix
     #../common/optional/starcitizen-fixes.nix
+    ../common/optional/printerhp.nix
+
   ];
 
   # TODO: theme "greeter" user GTK instead of using misterio to login
