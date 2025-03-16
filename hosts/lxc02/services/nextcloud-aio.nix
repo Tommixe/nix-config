@@ -25,7 +25,7 @@
     };
   };
 
-  services.duplicacy = {
+  config.services.duplicacy = {
     enable = true;
     instances.nextcloud = {
       backupDir = "/nextcloud";
