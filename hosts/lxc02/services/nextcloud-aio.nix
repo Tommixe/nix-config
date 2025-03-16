@@ -25,5 +25,12 @@
     };
   };
 
+  services.duplicacy = {
+    enable = true;
+    instances.nextcloud = {
+      backupDir = "/nextcloud";
+      onCalendar = "04:03" ;
+    };
+  };
 
 }
