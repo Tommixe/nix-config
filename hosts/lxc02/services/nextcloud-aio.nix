@@ -25,5 +25,20 @@
     };
   };
 
+  config.services.duplicacy = {
+    enable = true;
+    instances.nextcloud = {
+      backupDir = "/nextcloud";
+      onCalendar = "04:30" ;
+    };
+  };
+
+   config.services.duplicacy-prune = {
+    enable = true;
+    instances.nextcloud = {
+      backupDir = "/nextcloud";
+      onCalendar = "*-*-01 07:30:00";
+    };
+  };
 
 }

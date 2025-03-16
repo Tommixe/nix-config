@@ -56,6 +56,11 @@ creation_rules:
     - age:
       - *lxc02
       - *user01
+  - path_regex: hosts/lxc02/lxcconf.md
+    key_groups:
+    - age:
+      - *lxc02
+      - *user01      
   - path_regex: hosts/ws02/secrets.ya?ml$
     key_groups:
     - age:
