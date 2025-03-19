@@ -7,7 +7,7 @@
 
 with lib;
 let
-  cfg = config.services.duplicacy;
+  cfg = config.services.duplicacy-prune;
 in
 {
   options = {
