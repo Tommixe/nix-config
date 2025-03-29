@@ -1,5 +1,7 @@
 { config, ... }:
-
+let
+  global-var = builtins.extraBuiltins.sopsImportEncrypted ../global-var.nix.sops;
+in
 {
 
   programs.msmtp = {
@@ -10,29 +12,17 @@
         tls = true;
         tls_starttls = false;
         tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
-        host = "cat ${config.sops.secrets.msmtp-host.path}";
+        host = global-var.msmtp-host;
         port = 465; #"cat ${config.sops.secrets.msmtp-port.path}";
-        user = "cat ${config.sops.secrets.msmtp-user.path}";
+        user = global-var.msmtp-user;
         passwordeval = "cat ${config.sops.secrets.msmtp-passwordeval.path}";
-        from = "cat ${config.sops.secrets.msmtp-from.path}";
+        from = global-var.msmtp-from;
       };
     };
   };
 
   sops.secrets = {
-    msmtp-host = {
-      sopsFile = ../secrets.yaml;
-    };
-    #msmtp-port = {
-    #  sopsFile = ../secrets.yaml;
-    #};
-    msmtp-user = {
-      sopsFile = ../secrets.yaml;
-    };
     msmtp-passwordeval = {
-      sopsFile = ../secrets.yaml;
-    };
-    msmtp-from = {
       sopsFile = ../secrets.yaml;
     };
   };

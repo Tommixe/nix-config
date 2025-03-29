@@ -2,6 +2,7 @@
   inputs,
   lib,
   config,
+  pkgs,
   ...
 }: let
   flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -36,7 +37,12 @@ in
 
     # extraOptions = ''
     # !include "${config.sops.secrets.github-token.path}"
-    # '';    
+    # '';
+
+    extraOptions = ''
+     plugin-files = ${pkgs.nix-plugins}/lib/nix/plugins
+     extra-builtins-file = ${../../../nix/extra-builtins.nix}
+     '';    
 
     gc = {
       automatic = lib.mkIf (!config.programs.nh.enable) true;
