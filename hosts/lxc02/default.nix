@@ -9,6 +9,7 @@
     ../common/optional/docker.nix
     ../common/optional/portainer.nix
     ../common/optional/tailscale-server-local.nix
+    #../common/optional/msmtp.nix
     ./services
 
   ];
