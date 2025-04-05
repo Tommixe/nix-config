@@ -14,7 +14,7 @@
     ../common/optional/dockge.nix
     ../common/optional/gh-token.nix
     ../common/optional/duplicacy.nix
-    ../common/optional/msmtp.nix
+    #../common/optional/msmtp.nix
     ../common/optional/tailscale-server-local.nix
   ];
 
