@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    #./globals.nix
     ./acme.nix
     ./auto-upgrade.nix
     ./fish.nix

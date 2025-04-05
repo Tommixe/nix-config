@@ -1,9 +1,10 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   #https://github.com/heywoodlh/nixos-configs/tree/master/nixos/roles/monitoring
 
   services.zabbixAgent = {
     enable = true;
+    package= pkgs.zabbix.agent2;
     server = "cloud01";
   };
 
