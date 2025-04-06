@@ -39,7 +39,7 @@ in
       "The content of the decrypted file must be a nix expression and should therefore end in .nix.sops";
     exec 
       [       
-        "SOPS_AGE_KEY_FILE=/run/secrets.d/age-keys.txt" "sops" "--decrypt" nixFile
+        "sops" "--decrypt" nixFile
       ];      
     
 }
