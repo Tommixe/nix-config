@@ -2,7 +2,6 @@
   inputs,
   lib,
   config,
-  pkgs,
   ...
 }:
 let
@@ -16,11 +15,4 @@ in
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
   };
-
-  environment.variables = {
-    SOPS_AGE_KEY_FILE="/run/secrets.d/age-keys.txt";
-  };
-
-  environment.systemPackages = [pkgs.sops ];
-
 }

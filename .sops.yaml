@@ -82,18 +82,3 @@ creation_rules:
       - *lxc02
       - *ws02
 
-  - path_regex: hosts/common/global-var.nix.sops
-    key_groups:
-    - age:
-      - *server01
-      - *server02
-      - *dev01
-      - *hpx360
-      - *ws01
-      - *user01
-      - *cloud01
-      - *rpi01
-      - *lxc01
-      - *lxc02
-      - *ws02
-
