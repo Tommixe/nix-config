@@ -44,6 +44,11 @@
       url = "github:ghostty-org/ghostty";
     };
 
+    pconf = {
+      url = "git+ssh://git@github.com/Tommixe/nixos-pconf";
+    };
+
+
   };
 
   outputs =
@@ -53,6 +58,7 @@
       home-manager,
       nix-flatpak,
       ghostty,
+      pconf,
       ...
     }@inputs:
     let
