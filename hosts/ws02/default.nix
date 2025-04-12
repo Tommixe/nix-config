@@ -15,7 +15,7 @@
     ../common/optional/gh-token.nix
     ../common/optional/flatpak.nix
     ../common/optional/printerhp.nix
-    #../common/optional/msmtp.nix
+    ../common/optional/msmtp.nix
     
   ];
 
