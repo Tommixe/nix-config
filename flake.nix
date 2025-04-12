@@ -45,7 +45,8 @@
     };
 
     pconf = {
-      url = "git+ssh://git@github.com/Tommixe/nixos-pconf";
+      #url = "git+ssh://git@github.com/Tommixe/nixos-pconf";
+      url = "github:Tommixe/nixos-pconf";
     };
 
 

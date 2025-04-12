@@ -1,3 +1,4 @@
+#https://discourse.nixos.org/t/private-github-repo-inputs-with-access-tokens-how-exactly/41494
 { config, ... }:
 {
   nix.extraOptions = ''!include ${config.sops.templates."nix-extra-config".path} '';
