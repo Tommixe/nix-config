@@ -1,5 +1,4 @@
 { config, ... }:
-
 {
 
   programs.msmtp = {
@@ -10,30 +9,18 @@
         tls = true;
         tls_starttls = false;
         tls_trust_file = "/etc/ssl/certs/ca-certificates.crt";
-        host = "cat ${config.sops.secrets.msmtp-host.path}";
+        host = config.global-var.msmtp-host; #"cat ${config.sops.secrets.msmtp-host.path}";
         port = 465; #"cat ${config.sops.secrets.msmtp-port.path}";
-        user = "cat ${config.sops.secrets.msmtp-user.path}";
+        user = config.global-var.msmtp-user; #"cat ${config.sops.secrets.msmtp-user.path}";
         passwordeval = "cat ${config.sops.secrets.msmtp-passwordeval.path}";
-        from = "cat ${config.sops.secrets.msmtp-from.path}";
+        from = config.global-var.msmtp-from; #"cat ${config.sops.secrets.msmtp-from.path}";
       };
     };
   };
 
   sops.secrets = {
-    msmtp-host = {
+      msmtp-passwordeval = {
       sopsFile = ../secrets.yaml;
-    };
-    #msmtp-port = {
-    #  sopsFile = ../secrets.yaml;
-    #};
-    msmtp-user = {
-      sopsFile = ../secrets.yaml;
-    };
-    msmtp-passwordeval = {
-      sopsFile = ../secrets.yaml;
-    };
-    msmtp-from = {
-      sopsFile = ../secrets.yaml;
-    };
+    };    
   };
 }

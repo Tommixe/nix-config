@@ -5,4 +5,5 @@
   duplicacy-prune = import ./duplicacy-prune.nix;
   hydra-auto-upgrade = import ./hydra-auto-upgrade.nix;
   rstart = import ./rstart.nix;
+  globals = import ./globals.nix; 
 }

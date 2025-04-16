@@ -1,10 +1,9 @@
 {
+  inputs,
   ...
 }:
 {
 
-
-   global-var = builtins.extraBuiltins.sopsImportEncrypted ../global-var.nix.sops;
-  
+  global-var = inputs.pconf.global-var ;
 
 }

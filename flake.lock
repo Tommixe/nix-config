@@ -316,6 +316,21 @@
         "type": "github"
       }
     },
+    "pconf": {
+      "locked": {
+        "lastModified": 1744782344,
+        "narHash": "sha256-9PdlfWKBdBbG+DxtNRQc8bnWNWKHyVGRxxBXxwnqY8M=",
+        "owner": "Tommixe",
+        "repo": "nixos-pconf",
+        "rev": "2e9b5743c0e8af4ec4f02e4e82332097482b8504",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Tommixe",
+        "repo": "nixos-pconf",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -328,6 +343,7 @@
         "nix-colors": "nix-colors",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
+        "pconf": "pconf",
         "sops-nix": "sops-nix"
       }
     },
