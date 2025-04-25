@@ -56,9 +56,9 @@ in
         description = "Duplicacy Backup Service ${name}";
         wants = [ "network-online.target" ];
         after = [ "network-online.target" ];
-        postStop = ''
-        echo "Subject:Backup" | cat - ${instance.backupDir}/.duplicacy/logs/duplicacy-backup.log | ${pkgs.msmtp}/bin/msmtp ***REMOVED***
-        '';
+        #postStop = ''
+        #echo "Subject:Backup" | cat - ${instance.backupDir}/.duplicacy/logs/duplicacy-backup.log | ${pkgs.msmtp}/bin/msmtp mail@fixme
+        #'';
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${cfg.package}/bin/duplicacy -log backup -stats";
