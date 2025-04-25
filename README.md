@@ -44,7 +44,7 @@ Started and heavly inspired by https://github.com/Misterio77/nix-config
 - `pkgs`: My custom packages. Also accessible via `nix build`. You can compose
   these into your own configuration by using my flake's overlay, or consume them through NUR.
 - `templates`: A couple project templates for different languages. Accessible
-  via `nix init`.
+  via `nix init`
 
 
 
