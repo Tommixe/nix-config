@@ -30,6 +30,7 @@
     instances.nextcloud = {
       backupDir = "/nextcloud";
       onCalendar = "04:30" ;
+      email = config.global-var.user01-email01;
     };
   };
 
@@ -38,6 +39,7 @@
     instances.nextcloud = {
       backupDir = "/nextcloud";
       onCalendar = "*-*-01 07:30:00";
+      email = config.global-var.user01-email01;
     };
   };
 
