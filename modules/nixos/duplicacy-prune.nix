@@ -43,6 +43,13 @@ in
                    monthly = *-*-01 00:00:00
                 '';
               };
+              
+              email = mkOption {
+                  type = types.str;
+                  default = "mail@nomail.com";
+                  description = "Mail address where to send prune job notifications";
+              };
+
             };
           });
       };
@@ -57,9 +64,9 @@ in
         description = "Duplicacy Prune Service ${name}";
         wants = [ "network-online.target" ];
         after = [ "network-online.target" ];
-        #postStop = ''
-        #echo "Subject:Backup" | cat - ${instance.backupDir}/.duplicacy/logs/duplicacy-prune.log | ${pkgs.msmtp}/bin/msmtp mail@fix.me
-        #'';
+        postStop = ''
+        echo "Subject:Backup" | cat - ${instance.backupDir}/.duplicacy/logs/duplicacy-prune.log | ${pkgs.msmtp}/bin/msmtp ${instance.email}
+        '';
         serviceConfig = {
           Type = "oneshot";
           ExecStart = "${cfg.package}/bin/duplicacy -log prune -keep 0:360 -keep 30:180 -keep 7:30 -keep 1:7";
