@@ -302,11 +302,11 @@
     },
     "pconf": {
       "locked": {
-        "lastModified": 1744782344,
-        "narHash": "sha256-9PdlfWKBdBbG+DxtNRQc8bnWNWKHyVGRxxBXxwnqY8M=",
+        "lastModified": 1747402169,
+        "narHash": "sha256-iJbiri3bJ+vCtmRKYwFUJUW6vniyqmzDfuvr+3fcLjg=",
         "owner": "Tommixe",
         "repo": "nixos-pconf",
-        "rev": "2e9b5743c0e8af4ec4f02e4e82332097482b8504",
+        "rev": "fb24e660edfe6ee45f0988c3c87cbc7b370f18a9",
         "type": "github"
       },
       "original": {
