@@ -140,3 +140,6 @@ Let me know if you have any questions about them :)
 ## Steps
 - nix flake check --no-build
 - nix fmt . -- --check
+
+## To update pconf input
+ sudo nix flake update pconf

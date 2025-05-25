@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib,... }:
 {
   config.virtualisation.oci-containers = {
     backend = "docker";
@@ -43,4 +43,26 @@
     };
   };
 
+  config.services.rsync-scheduled = {
+    enable = true;
+    instances.nextcloud = {
+      onCalendar = "06:30" ;
+      email = config.global-var.user01-email01;
+      key = "/persist/etc/ssh/ssh_host_ed25519_key";
+      source = "/nextcloud/";
+      destination = "root@${config.global-var.ip-mox}:/mnt/hd1/nextcloud";
+      options = "-azAX --delete --dry-run";
+      rules = '' 
+        - appdata_oclztnts2txl/
+        - files_external/
+        - .ocdata
+        - .htaccess
+        - owncloud.db
+        - nextcloud.log
+        - index.html
+      '';
+    };
+  };
+
+ 
 }
