@@ -8,7 +8,7 @@
     #./features/productivity
     #../features/nvim
     ../features/helix
-    #../features/ghostty
+    ../features/ghostty
     #./features/pass
     #./features/games
     #./features/music
