@@ -19,6 +19,7 @@
     ./tailscale.nix
     ./zabbix-agent.nix
     ./nh.nix
+    ./ghostty.nix
   ] ++ (builtins.attrValues outputs.nixosModules);
 
   home-manager.extraSpecialArgs = {
