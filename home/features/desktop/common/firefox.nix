@@ -15,7 +15,7 @@ in
     enable = true;
     profiles.${config.home.username} = {
       bookmarks = { };
-      extensions = with addons; [
+      extensions.packages = with addons; [
         ublock-origin
         browserpass
         bitwarden
