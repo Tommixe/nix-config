@@ -51,7 +51,7 @@
       key = "/persist/etc/ssh/ssh_host_ed25519_key";
       source = "/nextcloud/";
       destination = "root@${config.global-var.ip-mox}:/mnt/hd1/nextcloud";
-      options = "-azAX --delete --dry-run";
+      options = "-azAX --delete";
       rules = '' 
         - appdata_oclztnts2txl/
         - files_external/
