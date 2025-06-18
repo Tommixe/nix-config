@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 {
   imports = [
     ./services
@@ -24,7 +24,35 @@
     hostName = "ws02";
     useDHCP = lib.mkForce true;
   };
+
+  networking.interfaces.eno1.wakeOnLan = {
+    enable = true;
+    policy = [ "magic" ];
+  };
   
+  # Use a systemd service to persist the setting
+  systemd.services.wol = {
+    description = "Enable Wake-on-LAN";
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.ethtool}/bin/ethtool -s eno1 wol g";
+      RemainAfterExit = true;
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
+
+  
+
+    environment.persistence = {
+    "/persist" = {
+      hideMounts = true;
+      directories = [
+        "/var/lib/gnome-remote-desktop/"
+      ];
+    };
+  };
   
   # # Static IP address
   # networking = {
