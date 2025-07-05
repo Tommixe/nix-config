@@ -26,54 +26,7 @@ in
 
   # Modifies existing packages
   modifications = final: prev: {
-    vimPlugins = prev.vimPlugins // {
-      vim-numbertoggle = addPatches prev.vimPlugins.vim-numbertoggle [
-        ./vim-numbertoggle-command-mode.patch
-      ];
-    };
-
-    passExtensions = prev.passExtensions // {
-      # https://github.com/tadfisher/pass-otp/pull/173
-      pass-otp = addPatches prev.passExtensions.pass-otp [ ./pass-otp-fix-completion.patch ];
-    };
-
-    # https://github.com/mdellweg/pass_secret_service/pull/37
-    pass-secret-service = addPatches prev.pass-secret-service [ ./pass-secret-service-native.diff ];
-
-    # https://github.com/NixOS/nix/issues/5567#issuecomment-1193259926
-    # nix = addPatches prev.nix [ ./nix-make-installables-expr-context.patch ];
-
-    # https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/2918
-    openrgb = addPatches prev.openrgb [ ./openrgb-all-devices.diff ];
-
-    xdg-utils-spawn-terminal = final.callPackage ../pkgs/xdg-utils { };
-
-    pfetch = prev.pfetch.overrideAttrs (oldAttrs: {
-      version = "unstable-2021-12-10";
-      src = final.fetchFromGitHub {
-        owner = "dylanaraps";
-        repo = "pfetch";
-        rev = "a906ff89680c78cec9785f3ff49ca8b272a0f96b";
-        sha256 = "sha256-9n5w93PnSxF53V12iRqLyj0hCrJ3jRibkw8VK3tFDvo=";
-      };
-      # Add term option, rename de to desktop, add scheme option
-      patches = (oldAttrs.patches or [ ]) ++ [ ./pfetch.patch ];
-    });
-
-    # Sane default values and crash avoidance (https://github.com/k-vernooy/trekscii/pull/1)
-    #trekscii = addPatches prev.trekscii [ ./trekscii.patch ];
-
-    scgit = prev.cgit-pink.overrideAttrs (_: {
-      pname = "scgit";
-      version = "0.1";
-      src = final.fetchFromSourcehut {
-        owner = "~misterio";
-        repo = "scgit";
-        rev = "2cd05c95827fb94740e876733dc6f7fe88340de2";
-        sha256 = "sha256-95mRJ3ZCSkLHqehFQdwM2BY0h+YDhohwpnRiF6/lZtA=";
-      };
-    });
-
+   
     #https://github.com/NixOS/nixpkgs/issues/371837
     jackett = prev.jackett.overrideAttrs { doCheck = false; }; 
 
