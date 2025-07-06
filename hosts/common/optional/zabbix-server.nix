@@ -49,7 +49,7 @@
   # technically not needed on the server, but good for testing.
   services.zabbixAgent = {
     enable = true;
-    package = pkgs.zabbix72.agent2;
+    package = lib.mkForce pkgs.zabbix72.agent2;
     server = "cloud01";
   };
 
