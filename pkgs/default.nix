@@ -4,7 +4,6 @@
 rec {
 
   # Personal scripts
-  pass-wofi = pkgs.callPackage ./pass-wofi { };
   xpo = pkgs.callPackage ./xpo { };
   rstart = pkgs.callPackage ./rstart { };
 

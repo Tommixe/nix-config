@@ -13,6 +13,7 @@
     ../common/optional/tailscale-server.nix
     ../common/optional/tailscale-exit-node.nix
     #../common/optional/portainer.nix
+     ../common/optional/msmtp.nix
   ];
 
   networking = {
