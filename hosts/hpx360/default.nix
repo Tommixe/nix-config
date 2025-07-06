@@ -30,7 +30,6 @@
     #../common/optional/lol-acfix.nix
     #../common/optional/starcitizen-fixes.nix
     ../common/optional/printerhp.nix
-    ../common/optional/msmtp.nix
 
   ];
 
