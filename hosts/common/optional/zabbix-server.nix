@@ -7,10 +7,22 @@
 {
   #https://github.com/heywoodlh/nixos-configs/tree/master/nixos/roles/monitoring
 
-  services.zabbixServer.enable = true;
+  #services.zabbixServer.enable = true;
+
+  services.zabbixServer = {
+      enable = true;
+      package = pkgs.zabbix72.server;
+      database.type = "pgsql";
+      extraPackages = with pkgs; [
+        nettools
+        nmap
+        traceroute
+      ];
+    };
 
   services.zabbixWeb = {
     enable = true;
+    package = pkgs.zabbix72.web;
     virtualHost = {
       listen = [
         {
@@ -37,6 +49,7 @@
   # technically not needed on the server, but good for testing.
   services.zabbixAgent = {
     enable = true;
+    package = lib.mkForce pkgs.zabbix72.agent2;
     server = "cloud01";
   };
 
