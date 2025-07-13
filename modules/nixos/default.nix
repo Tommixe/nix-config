@@ -7,4 +7,5 @@
   rstart = import ./rstart.nix;
   globals = import ./globals.nix;
   rsync-scheduled = import ./rsync-scheduled.nix; 
+  garage-s3 = import ./garage-s3.nix;
 }

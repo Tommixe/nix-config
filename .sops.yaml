@@ -65,7 +65,12 @@ creation_rules:
     key_groups:
     - age:
       - *ws02
-      - *user01    
+      - *user01
+  - path_regex: hosts/hpx360/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *hpx360
+      - *user01 
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
