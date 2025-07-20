@@ -25,6 +25,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/main";
     #disko.inputs.nixpkgs-stable.follows = "nixpkgs";
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 
     home-manager = {
       #url = "github:nix-community/home-manager";
@@ -59,6 +60,7 @@
       home-manager,
       nix-flatpak,
       #ghostty,
+      quadlet-nix,
       pconf,
       ...
     }@inputs:

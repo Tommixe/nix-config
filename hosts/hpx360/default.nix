@@ -106,5 +106,32 @@
   #  };
 */
 
+   modules.opencloud = {
+        enable = true;
+        version = "2.0.4";
+        port = 11200;
+        configDir = "/srv/opencloud/config";
+        dataDir = "/srv/opencloud/metadata";
+        environmentFiles = [ config.sops.secrets.opencloudEnv.path ];
+        domain = "opencloud.tzero.it";
+        S3_access_key = "opencloud-key";
+        S3_bucket = "opencloud";
+        S3_endpoint = "localhost:3900";
+        S3_region = "garage";
+        S3_secret_key = "cat ${config.sops.secrets.opencloud-s3-key.path}";
+    };
+
+
+  sops.secrets.opencloudEnv = {
+    sopsFile = ./opencloud.env;
+    format = "dotenv";
+  };
+
+  sops.secrets.opencloud-s3-key ={
+      sopsFile = ./secrets.yaml;
+  };    
+
+
+
   system.stateVersion = "23.05";
 }

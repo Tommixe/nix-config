@@ -71,6 +71,11 @@ creation_rules:
     - age:
       - *hpx360
       - *user01 
+  - path_regex: hosts/hpx360/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *hpx360
+      - *user01 
 
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
