@@ -161,6 +161,12 @@
             inherit inputs outputs;
           };
         };
+        lp01 = lib.nixosSystem {
+          modules = [ ./hosts/lp01 ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
 
       homeConfigurations = {
@@ -237,6 +243,13 @@
         };
         "user01@ws02" = lib.homeManagerConfiguration {
           modules = [ ./home/user01/ws02.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+        "user01@lp01" = lib.homeManagerConfiguration {
+          modules = [ ./home/user01/lp01.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;

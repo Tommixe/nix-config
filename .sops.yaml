@@ -14,6 +14,7 @@ keys:
     - &lxc01 age1d3s3k520rsptj69rayvdyd5k28rkgx2tgpq7h9vtxe34vfm7ta2sacd28q
     - &lxc02 age1env45y5ueq59d6344xh6unz8pmkr0g6nh0z4kavetyqjltcvlcdstcy34e
     - &ws02 age1ex74cmg3pteh2x9rju7tz92d9akjsr27mfd3s5l06j7khxe505aqsztqrm
+    - &lp01 age1sr6m3qtvjh49k00zrdujf05yqcg66xv7cxas9k0c5sczqtgmj5as8dyqk7
 
 creation_rules:
   - path_regex: hosts/server01/secrets.ya?ml$
@@ -65,6 +66,11 @@ creation_rules:
     key_groups:
     - age:
       - *ws02
+      - *user01
+  - path_regex: hosts/lp01/secrets.ya?ml$
+    key_groups:
+    - age:
+      - *lp01
       - *user01    
 
   - path_regex: hosts/common/secrets.ya?ml$
@@ -81,4 +87,4 @@ creation_rules:
       - *lxc01
       - *lxc02
       - *ws02
-
+      - *lp01
