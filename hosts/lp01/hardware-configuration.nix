@@ -1,8 +1,9 @@
-{ modulesPath, lib, config, ... }:
+{ modulesPath, lib, config, inputs, ... }:
 {
   imports = [
     ../common/optional/ephemeral-btrfs-lvm.nix
     # ../common/optional/encrypted-root.nix
+    inputs.nixos-facter-modules.nixosModules.facter
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -10,6 +11,8 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+
+  facter.reportPath = ./facter.json;
 
 
  fileSystems."/efi" =
@@ -55,7 +58,7 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp193s0.useDHCP = lib.mkDefault true;
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.hostPlatform = lib.mkForce "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
 }

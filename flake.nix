@@ -24,6 +24,7 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/main";
+    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
     #disko.inputs.nixpkgs-stable.follows = "nixpkgs";
 
     home-manager = {
@@ -50,6 +51,7 @@
     };
 
 
+
   };
 
   outputs =
@@ -59,6 +61,7 @@
       home-manager,
       nix-flatpak,
       #ghostty,
+      nixos-facter-modules,
       pconf,
       ...
     }@inputs:
@@ -161,6 +164,7 @@
             inherit inputs outputs;
           };
         };
+        # lenovo amd ryzen laptop
         lp01 = lib.nixosSystem {
           modules = [ ./hosts/lp01 ];
           specialArgs = {
