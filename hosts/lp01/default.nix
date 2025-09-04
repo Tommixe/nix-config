@@ -14,8 +14,6 @@
     ../common/users/user01
     #../common/users/user02
     ../common/global/tailscale.nix
-
-    
     ../common/optional/pipewire.nix
     ../common/optional/quietboot.nix
     ../common/optional/gnome.nix
@@ -23,25 +21,12 @@
     ../common/optional/gh-token.nix
     ../common/optional/flatpak.nix
     ../common/optional/printerhp.nix
-
     #Use systemd-boot
     ../common/optional/systemd-boot.nix
     #Use xbootldr
     ../common/optional/xbootldr.nix
 
   ];
-
-
-  # Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.systemd-boot.consoleMode = "auto";
-  #boot.loader.efi.canTouchEfiVariables = true;
-  
-
-  boot.loader.timeout = 10;
-  
-  #boot.loader.efi.efiSysMountPoint = "/efi";
-  #boot.loader.systemd-boot.xbootldrMountPoint = "/boot";
 
   boot.initrd.luks.devices = {
       enc = {
@@ -62,7 +47,7 @@
 
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  
+  # Enable fractional scaling  
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.mutter]
     experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
