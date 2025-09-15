@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   lib,
+  config,
   ...
 }:
 {
@@ -30,6 +31,7 @@
     #../common/optional/lol-acfix.nix
     #../common/optional/starcitizen-fixes.nix
     ../common/optional/printerhp.nix
+    ../common/optional/garage-s3.nix
 
   ];
 
@@ -81,6 +83,55 @@
       opentabletdriver.enable = true;
     };
   */
+
+/*
+  services.garage-s3 = {
+    enable = true;
+    package = pkgs.garage_2;
+    secrets = {
+      sopsFile = "./../../hosts/${config.networking.hostName}/secrets.yaml"; #path relative to nixos/modules/garage-s3.nix
+      rpcSecret = "rpcSecret";
+      adminToken = "adminToken";
+    };
+    data = {
+        dir = "/persist/garage/data";
+        capacity = "2G";
+      };
+    metadataDir = "/persist/garage/metadata";
+    rpcPublicAddr = "hpx360:3901";
+  };
+
+  #environment.persistence = {
+  #  "/persist".directories = [ "/var/lib/garage" ];
+  #  };
+*/
+
+   modules.opencloud = {
+        enable = true;
+        version = "2.0.4";
+        port = 11200;
+        configDir = "/srv/opencloud/config";
+        dataDir = "/srv/opencloud/metadata";
+        environmentFiles = [ config.sops.secrets.opencloudEnv.path ];
+        domain = "opencloud.tzero.it";
+        S3_access_key = "opencloud-key";
+        S3_bucket = "opencloud";
+        S3_endpoint = "localhost:3900";
+        S3_region = "garage";
+        S3_secret_key = "cat ${config.sops.secrets.opencloud-s3-key.path}";
+    };
+
+
+  sops.secrets.opencloudEnv = {
+    sopsFile = ./opencloud.env;
+    format = "dotenv";
+  };
+
+  sops.secrets.opencloud-s3-key ={
+      sopsFile = ./secrets.yaml;
+  };    
+
+
 
   system.stateVersion = "23.05";
 }

@@ -24,7 +24,9 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-flatpak.url = "github:gmodena/nix-flatpak/main";
+    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
     #disko.inputs.nixpkgs-stable.follows = "nixpkgs";
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 
     home-manager = {
       #url = "github:nix-community/home-manager";
@@ -50,6 +52,7 @@
     };
 
 
+
   };
 
   outputs =
@@ -59,6 +62,8 @@
       home-manager,
       nix-flatpak,
       #ghostty,
+      quadlet-nix,
+      nixos-facter-modules,
       pconf,
       ...
     }@inputs:
@@ -161,6 +166,13 @@
             inherit inputs outputs;
           };
         };
+        # lenovo amd ryzen laptop
+        lp01 = lib.nixosSystem {
+          modules = [ ./hosts/lp01 ];
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        };
       };
 
       homeConfigurations = {
@@ -237,6 +249,13 @@
         };
         "user01@ws02" = lib.homeManagerConfiguration {
           modules = [ ./home/user01/ws02.nix ];
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+        };
+        "user01@lp01" = lib.homeManagerConfiguration {
+          modules = [ ./home/user01/lp01.nix ];
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
