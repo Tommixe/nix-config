@@ -15,7 +15,7 @@
   users.groups =  {
     www-data = {
       gid = 33;
-      members = [ "radarr" "sonarr" "jellyfin" "transmission" ];
+      members = [ "radarr" "sonarr" "jellyfin" "transmission" "lidarr" "prowlarr" ];
     };
   };
   
