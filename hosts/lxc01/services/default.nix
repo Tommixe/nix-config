@@ -5,5 +5,7 @@
     ./radarr.nix
     ./jackett.nix
     ./transmission.nix
+    ./prowlarr.nix
+    ./lidarr.nix
   ];
 }
