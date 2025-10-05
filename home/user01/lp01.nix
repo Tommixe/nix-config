@@ -18,4 +18,14 @@
 
   colorscheme = inputs.nix-colors.colorschemes.atelier-sulphurpool;
   wallpaper = outputs.wallpapers.aenami-northwind;
+
+  services.flatpak.packages = [
+    #{ appId = "com.brave.Browser"; origin = "flathub"; }
+    "md.obsidian.Obsidian"
+    "io.github.nozwock.Packet"
+    "com.bitwarden.desktop"
+    "org.onlyoffice.desktopeditors"
+    #"im.riot.Riot"
+  ];
+
 }
