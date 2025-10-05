@@ -22,7 +22,7 @@
   #xdg.mimeApps.enable = true;
   home.packages = with pkgs; [
     #xdg-utils-spawn-terminal
-    bitwarden
+    #bitwarden
     bitwarden-cli
     vscode
     #obsidian
