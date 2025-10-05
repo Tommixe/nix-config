@@ -15,7 +15,8 @@
     jq # JSON pretty printer and manipulator
     #trekscii # Cute startrek cli printer
     opentofu
-    nil # Nix LSP
+    #nil # Nix LSP
+    nixd # Nix daemon, for faster builds
     nixfmt-rfc-style # Nix formatter
     nix-inspect # See which pkgs are in your PATH
     nvd
