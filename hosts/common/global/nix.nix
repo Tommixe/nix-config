@@ -45,9 +45,11 @@ in
       options = "--delete-older-than 7d";
     };
 
+
+    #TO DO to be fixed when using both unstable and stable
     # Add each flake input as a registry and nix_path
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+    #registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    #nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
   /*
