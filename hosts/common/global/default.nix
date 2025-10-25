@@ -1,8 +1,16 @@
 # This file (and the global directory) holds config that i use on all hosts
-{ inputs, outputs, ... }:
+{ inputs, outputs, lib, ... }:
+let
+homeVersion =
+    if lib.versions.majorMinor lib.version == "25.05" then
+       inputs.home-manager.nixosModules.home-manager
+    else  
+    inputs.home-manager-unstable.nixosModules.home-manager;
+in
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+    #inputs.home-manager.nixosModules.home-manager
+    homeVersion
     ./globals.nix
     ./acme.nix
     ./auto-upgrade.nix

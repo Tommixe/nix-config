@@ -5,6 +5,10 @@
   ...
 }:
 {
+
+
+  
+
   imports = [
    
 
@@ -17,6 +21,7 @@
     ../common/optional/pipewire.nix
     ../common/optional/quietboot.nix
     ../common/optional/gnome.nix
+     ../common/optional/cosmic.nix
     ../common/optional/wirelesspersist.nix
     ../common/optional/gh-token.nix
     ../common/optional/flatpak.nix
