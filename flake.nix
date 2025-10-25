@@ -15,7 +15,7 @@
   };
 
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     hardware.url = "github:nixos/nixos-hardware";
     impermanence.url = "github:nix-community/impermanence";
@@ -33,6 +33,13 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager";
+      #url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +66,9 @@
     {
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
+      home-manager-unstable,
       nix-flatpak,
       #ghostty,
       quadlet-nix,
@@ -167,7 +176,7 @@
           };
         };
         # lenovo amd ryzen laptop
-        lp01 = lib.nixosSystem {
+        lp01 = nixpkgs-unstable.lib.nixosSystem {
           modules = [ ./hosts/lp01 ];
           specialArgs = {
             inherit inputs outputs;
@@ -254,9 +263,9 @@
             inherit inputs outputs;
           };
         };
-        "user01@lp01" = lib.homeManagerConfiguration {
+        "user01@lp01" = home-manager-unstable.lib.homeManagerConfiguration {
           modules = [ ./home/user01/lp01.nix ];
-          pkgs = pkgsFor.x86_64-linux;
+          pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
           };
