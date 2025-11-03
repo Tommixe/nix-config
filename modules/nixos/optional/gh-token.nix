@@ -1,0 +1,24 @@
+#https://discourse.nixos.org/t/private-github-repo-inputs-with-access-tokens-how-exactly/41494
+
+{
+
+  flake.modules.nixos.gh-token = 
+    { config, ... }:
+    {
+    nix.extraOptions = ''!include ${config.sops.templates."nix-extra-config".path} '';
+    nix.checkConfig = false;
+    users.groups.nix-access-tokens = { };
+    sops.templates."nix-extra-config" = {
+      content = ''
+        access-tokens = github.com=${config.sops.placeholder.github-token}
+      '';
+      group = config.users.groups.nix-access-tokens.name;
+      mode = "0440";
+    };
+    #users.groups.nix-access-tokens.gid = config.ids.gids.nix-access-tokens;
+    sops.secrets.github-token = {
+      sopsFile = ../../secrets/secrets.yaml;
+      restartUnits = [ "nix-daemon.service" ];
+    };
+  };
+}

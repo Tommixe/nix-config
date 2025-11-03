@@ -1,0 +1,10 @@
+{
+  flake.modules.nixos.base =
+    {
+      inputs,
+      ...
+    }:
+    {
+      global-var = inputs.pconf.global-var;
+    };
+}

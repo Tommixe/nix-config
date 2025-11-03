@@ -1,0 +1,17 @@
+{ lib, ... }:
+{
+  flake.modules.nixos.base = {
+
+      services.tailscale = {
+        enable = true;
+        useRoutingFeatures = lib.mkDefault "client";
+      };
+      networking.firewall = {
+        checkReversePath = "loose";
+        allowedUDPPorts = [ 41641 ]; # Facilitate firewall punching
+      };
+
+    custom.imp.root.directories = [ "/var/lib/tailscale" ];
+
+  };
+}

@@ -17,73 +17,73 @@ keys:
     - &lp01 age1sr6m3qtvjh49k00zrdujf05yqcg66xv7cxas9k0c5sczqtgmj5as8dyqk7
 
 creation_rules:
-  - path_regex: hosts/server01/secrets.ya?ml$
+  - path_regex: modules/hosts/server01/secrets.ya?ml$
     key_groups:
     - age:
       - *server01
       - *user01
-  - path_regex: hosts/server01/services/docker-secrets/*.*
+  - path_regex: modules/hosts/server01/services/docker-secrets/*.*
     key_groups:
     - age:
       - *server01
       - *user01
-  - path_regex: hosts/dev01/secrets.ya?ml$
+  - path_regex: modules/hosts/dev01/secrets.ya?ml$
     key_groups:
     - age:
       - *dev01
       - *user01
-  - path_regex: hosts/ws01/secrets.ya?ml$
+  - path_regex: modules/hosts/ws01/secrets.ya?ml$
     key_groups:
     - age:
       - *ws01
       - *user01
-  - path_regex: hosts/cloud01/secrets.ya?ml$
+  - path_regex: modules/hosts/cloud01/secrets.ya?ml$
     key_groups:
     - age:
       - *cloud01
       - *user01
-  - path_regex: hosts/rpi01/secrets.ya?ml$
+  - path_regex: modules/hosts/rpi01/secrets.ya?ml$
     key_groups:
     - age:
       - *rpi01
       - *user01  
-  - path_regex: hosts/lxc01/secrets.ya?ml$
+  - path_regex: modules/hosts/lxc01/secrets.ya?ml$
     key_groups:
     - age:
       - *lxc01
       - *user01     
-  - path_regex: hosts/lxc02/secrets.ya?ml$
+  - path_regex: modules/hosts/lxc02/secrets.ya?ml$
     key_groups:
     - age:
       - *lxc02
       - *user01
-  - path_regex: hosts/lxc02/lxcconf.md
+  - path_regex: modules/hosts/lxc02/lxcconf.md
     key_groups:
     - age:
       - *lxc02
       - *user01      
-  - path_regex: hosts/ws02/secrets.ya?ml$
+  - path_regex: modules/hosts/ws02/secrets.ya?ml$
     key_groups:
     - age:
       - *ws02
       - *user01
-  - path_regex: hosts/hpx360/secrets.ya?ml$
+  - path_regex: modules/hosts/hpx360/secrets.ya?ml$
     key_groups:
     - age:
       - *hpx360
       - *user01 
-  - path_regex: hosts/hpx360/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: modules/hosts/hpx360/[^/]+\.(yaml|json|env|ini)$
     key_groups:
     - age:
       - *hpx360
       - *user01 
-  - path_regex: hosts/lp01/secrets.ya?ml$
+  - path_regex: modules/hosts/lp01/secrets.ya?ml$
     key_groups:
     - age:
       - *lp01
       - *user01    
 
-  - path_regex: hosts/common/secrets.ya?ml$
+  - path_regex: modules/secrets/secrets.ya?ml$
     key_groups:
     - age:
       - *server01
