@@ -32,12 +32,18 @@ in
             nixpkgs = lib.mkOption {
               type = types.pathInStore;
             };
+
             pkgs = lib.mkOption {
               type = types.pkgs;
+            };
+            
+             home-manager = lib.mkOption {
+              type = types.pathInStore;
             };
           };
           config = {
             nixpkgs = if config.unstable then inputs.nixpkgs-unstable else inputs.nixpkgs;
+            home-manager = if config.unstable then inputs.home-manager-unstable else inputs.home-manager;
             pkgs = import config.nixpkgs {
               inherit (config) system;
               config.allowUnfree = true;
@@ -97,7 +103,7 @@ in
         let
           mkHost =
             configName: options:
-            inputs.home-manager.lib.homeManagerConfiguration {
+            options.home-manager.lib.homeManagerConfiguration {
               extraSpecialArgs = {
                 inputs = inputs;
                 inherit configName;

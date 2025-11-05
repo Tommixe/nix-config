@@ -4,8 +4,9 @@ topLevel@{ inputs, ... }:
     { config, ... }:
     {
 
+      #TO FIX  UNSTABLE
       imports = [
-        inputs.home-manager.nixosModules.home-manager
+        inputs.home-manager-unstable.nixosModules.home-manager
       ];
 
       #systemd.user.startServices = "sd-switch";

@@ -58,6 +58,7 @@
           # Clear screen and scrollback
           clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
         };
+        /*
         functions = {
           # Disable greeting
           fish_greeting = "";
@@ -75,7 +76,7 @@
             ${shellcolor} enable $fish_pid
             ${shellcolor} apply $fish_pid
           '';
-        };
+        }; */
         interactiveShellInit =
           # Open command buffer in vim when alt+e is pressed
           ''

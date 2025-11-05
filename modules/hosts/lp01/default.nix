@@ -36,10 +36,9 @@
       # Users
       #root
       user01
-    ];
+    ]
     # Specific Home-Manager modules
-    /*
-    ++ [
+     ++ [
       {
         home-manager.users.user01.imports = with config.flake.modules.homeManager; [
           base
@@ -56,8 +55,9 @@
         ];
       }
       
+      
     ];
-    */
+    
   facter.reportPath = ./facter.json;
 
   boot.initrd.luks.devices = {
