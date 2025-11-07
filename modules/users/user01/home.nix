@@ -7,25 +7,29 @@ topLevel@{
 }:
 {
 
-   homeHosts.user01 = {
-     unstable = true;
-     modules = with config.flake.modules.homeManager; [
-       base
-       user01
-     ];
-   };
+  homeHosts.user01 = {
+    unstable = true;
+    modules = with config.flake.modules.homeManager; [
+      base
+      user01
+    ];
+  };
 
   flake.modules.nixos.home-manager-user01 =
     { lib, config, ... }:
     let
       inherit (config.networking) hostName;
       userName = "user01";
+      homeVersion =
+        if lib.versions.majorMinor lib.version == "25.05" then
+          inputs.home-manager.nixosModules.home-manager
+        else
+          inputs.home-manager-unstable.nixosModules.home-manager;
     in
     {
-      #TO FIX  UNSTABLE
+    
       imports = [
-        inputs.home-manager-unstable.nixosModules.home-manager
-        #inputs.impermanence.nixosModules.impermanence
+        homeVersion
       ];
 
       # programs = {
@@ -37,8 +41,6 @@ topLevel@{
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "hm-backup";
-
-     
 
         users.${userName}.imports = [
           topLevel.config.flake.modules.homeManager.base
