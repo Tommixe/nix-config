@@ -1,6 +1,6 @@
 topLevel@{ inputs, ... }:
 {
-  flake.modules.nixos.home-manager =
+  flake.modules.nixos.home-manager-user02 =
     { config, ... }:
     {
 
