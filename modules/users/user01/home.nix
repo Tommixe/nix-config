@@ -22,9 +22,10 @@ topLevel@{
       userName = "user01";
     in
     {
+      #TO FIX  UNSTABLE
       imports = [
         inputs.home-manager-unstable.nixosModules.home-manager
-        #inputs.impermanence.nixosModules.home-manager.impermanence
+        #inputs.impermanence.nixosModules.impermanence
       ];
 
       # programs = {
