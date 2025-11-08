@@ -1,7 +1,7 @@
-{ config, ... }:
 {
-  flake.modules.nixos.base = {
-
+  flake.modules.nixos.base = 
+    { config, ... }:
+    {
 
     # Enable acme for usage with nginx vhosts
     security.acme = {
@@ -9,8 +9,8 @@
       acceptTerms = true;
     };
 
-    custom.imp.root.directories = [ "/var/lib/acme" ];
-   
-  };
+    custom.imp.root.directories = ["/var/lib/acme"] ;
   
+  };
+
 }

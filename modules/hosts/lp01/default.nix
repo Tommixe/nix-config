@@ -28,9 +28,9 @@
         sops
         systemd-boot
         xbootldr
-        ephemeral-btrfs-lvm
-        imp
-        imp-options
+        ephemeral-btrfs-lvm # This module will create an ephemeral btrfs root on top of lvm, the module imp is required to manage persistence
+        imp # optional to enable persistence i.e. create /persist directories to be preserved by impermanence, can be used without ephemeral-btrfs-lvm
+        imp-options # This module must be always turn on even if imp is off automatically add persist directories for some services
         pii
         hydraAutoUpgrade
         # Users

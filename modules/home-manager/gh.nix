@@ -11,9 +11,9 @@
         };
       };
       
-      # home.persistence = {
-      #   "/persist/home/${config.home.username}".directories = [ ".config/gh" ];
-      # };
+      home.persistence = {
+         "/persist/home/${config.home.username}".directories = [ ".config/gh" ];
+       };
      
 
     };
