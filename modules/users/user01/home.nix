@@ -20,17 +20,17 @@ topLevel@{
     let
       inherit (config.networking) hostName;
       userName = "user01";
-      homeVersion =
-        if lib.versions.majorMinor lib.version == "25.05" then
-          inputs.home-manager.nixosModules.home-manager
-        else
-          inputs.home-manager-unstable.nixosModules.home-manager;
+     # homeVersion =
+     #   if lib.versions.majorMinor lib.version == "25.05" then
+     #     inputs.home-manager.nixosModules.home-manager
+     #   else
+     #     inputs.home-manager-unstable.nixosModules.home-manager;
     in
     {
     
-      imports = [
-        homeVersion
-      ];
+      #imports = [
+      #  homeVersion
+      #];
 
       # programs = {
       #   home-manager.enable = true;

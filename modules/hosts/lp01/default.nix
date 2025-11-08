@@ -2,11 +2,13 @@
 {
   config,
   lib,
+  inputs,
   ...
 }:
 {
   nixosHosts.lp01 = {
     unstable = true;
+    modules = [ inputs.home-manager-unstable.nixosModules.default ];
   };
 
   flake.modules.nixos.host_lp01 = {
@@ -31,47 +33,22 @@
         imp-options
         pii
         hydraAutoUpgrade
-        home-manager-user01
         # Users
         #root
         user01
+        # Home manager for users
+        home-manager-user01
       ];
-    /*
-      # Specific Home-Manager modules
-       ++ [
-        {
-          home-manager.users.user01.imports = with config.flake.modules.homeManager; [
-            base
-            user01
-            #desktop
-            #dev
-            #email
-            #facter
-            #messaging
-            #games
-            #shell
-            #vpn
-            #work
-          ];
-        }
-
-      ];}
-    */
+    
 
     facter.reportPath = ./facter.json;
 
-    boot.initrd.luks.devices = {
-      enc = {
-        # Use https://nixos.wiki/wiki/Full_Disk_Encryption
-        device = "/dev/disk/by-uuid/34c8895b-50a7-476e-8fff-c897238d5720";
-        preLVM = true;
-      };
-    };
 
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
+
     nixpkgs.config.allowUnfree = true;
 
     networking = {
