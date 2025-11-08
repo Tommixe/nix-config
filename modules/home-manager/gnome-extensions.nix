@@ -1,11 +1,10 @@
 {
-  inputs,
-  pkgs,
+  flake.modules.homeManager.gnome-extensions =
+{
+   pkgs,
   ...
 }:
 {
-  imports = [ ../common ];
-
   home.packages = with pkgs; [
     gnomeExtensions.tailscale-qs
     gnomeExtensions.tailscale-status
@@ -18,6 +17,5 @@
     gnomeExtensions.clipboard-indicator
   ];
   
-
-
+};
 }

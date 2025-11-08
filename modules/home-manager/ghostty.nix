@@ -1,4 +1,6 @@
 {
+  flake.modules.homeManager.ghostty =
+{
   pkgs,
   ...
 }:
@@ -8,4 +10,5 @@
     pkgs.ghostty
   ];
   
+};
 }

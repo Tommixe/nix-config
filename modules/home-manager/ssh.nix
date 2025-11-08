@@ -30,9 +30,9 @@
         */
       };
 
-      #home.persistence = {
-      #  "/persist/home/${config.home.username}".directories = [ ".ssh" ];
-      #};
+      home.persistence = {
+        "/persist/home/${config.home.username}".directories = [ ".ssh" ];
+      };
 
       # custom.imp.homeManager.directories = [ "/home/${config.home.username}/.ssh" ];
 

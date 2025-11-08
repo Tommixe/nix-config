@@ -1,4 +1,6 @@
 {
+  flake.modules.homeManager.kdeconnect =
+{
   pkgs,
   lib,
   config,
@@ -7,12 +9,12 @@
 
 let
 
-  kdeconnect-cli = "${pkgs.plasma5Packages.kdeconnect-kde}/bin/kdeconnect-cli";
-  fortune = "${pkgs.fortune}/bin/fortune";
+ #kdeconnect-cli = "${pkgs.plasma5Packages.kdeconnect-kde}/bin/kdeconnect-cli";
+ # fortune = "${pkgs.fortune}/bin/fortune";
 
-  script-fortune = pkgs.writeShellScriptBin "fortune" ''
-    ${kdeconnect-cli} -d $(${kdeconnect-cli} --list-available --id-only) --ping-msg "$(${fortune})"
-  '';
+  #script-fortune = pkgs.writeShellScriptBin "fortune" ''
+  #  ${kdeconnect-cli} -d $(${kdeconnect-cli} --list-available --id-only) --ping-msg "$(${fortune})"
+  #'';
 in
 {
   # Hide all .desktop, except for org.kde.kdeconnect.settings
@@ -40,10 +42,11 @@ in
   };
 
   xdg.configFile = {
-    "kdeconnect-scripts/fortune.sh".source = "${script-fortune}/bin/fortune";
+   # "kdeconnect-scripts/fortune.sh".source = "${script-fortune}/bin/fortune";
   };
 
   home.persistence = {
     "/persist/home/${config.home.username}".directories = [ ".config/kdeconnect" ];
   };
+};
 }
