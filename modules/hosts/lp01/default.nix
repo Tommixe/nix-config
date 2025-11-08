@@ -8,6 +8,7 @@
 {
   nixosHosts.lp01 = {
     unstable = true;
+    enablePersistence = true;  # Enable persistence for this host
     modules = [ inputs.home-manager-unstable.nixosModules.default ];
   };
 

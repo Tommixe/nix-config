@@ -36,10 +36,17 @@ in
             pkgs = lib.mkOption {
               type = types.pkgs;
             };
-            
-             home-manager = lib.mkOption {
+
+            home-manager = lib.mkOption {
               type = types.pathInStore;
             };
+
+            enablePersistence = mkOption {
+              type = types.bool;
+              default = false;
+              description = "Whether to enable persistence for this host";
+            };
+
           };
           config = {
             nixpkgs = if config.unstable then inputs.nixpkgs-unstable else inputs.nixpkgs;
