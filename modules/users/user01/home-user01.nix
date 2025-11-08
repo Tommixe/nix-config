@@ -6,8 +6,9 @@
     in
     {
 
-       imports = [
-      inputs.impermanence.nixosModules.home-manager.impermanence ];
+      imports = [
+        inputs.impermanence.nixosModules.home-manager.impermanence
+      ];
 
       home = {
         username = userName;
