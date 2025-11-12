@@ -44,7 +44,7 @@ topLevel@{
 
         users.${userName}.imports = [
           topLevel.config.flake.modules.homeManager.base
-          topLevel.config.flake.modules.homeManager.hmuser01
+          topLevel.config.flake.modules.homeManager.home-user01
           (topLevel.config.flake.modules.homeManager."host_${hostName}" or { })
           # {
           #   age = {

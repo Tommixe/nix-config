@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  flake.modules.nixos.base = {
+  flake.modules.nixos.tailscale = {
 
       services.tailscale = {
         enable = true;

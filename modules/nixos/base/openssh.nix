@@ -1,6 +1,6 @@
 {
  
-  flake.modules.nixos.base =
+  flake.modules.nixos.openssh =
     {
       outputs,
       lib,

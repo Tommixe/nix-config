@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.hmuser01 =
+  flake.modules.homeManager.home-user01 =
     {
       lib,
       inputs,

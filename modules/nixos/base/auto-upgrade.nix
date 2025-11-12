@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.base = 
+  flake.modules.nixos.auto-upgrade = 
     {inputs, config, ...}: 
     {
     system.hydraAutoUpgrade = {

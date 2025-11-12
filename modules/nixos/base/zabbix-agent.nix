@@ -1,6 +1,6 @@
 
 {
-  flake.modules.nixos.base = 
+  flake.modules.nixos.zabbix-agent = 
     { pkgs, lib, ... }:
     {
       #https://github.com/heywoodlh/nixos-configs/tree/master/nixos/roles/monitoring

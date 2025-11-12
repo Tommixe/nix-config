@@ -3,8 +3,7 @@
   homeHosts."user01@lp01" = {
     unstable = true;
     modules = with config.flake.modules.homeManager; [
-      base
-      user01
+      host_lp01
     ];
   };
 

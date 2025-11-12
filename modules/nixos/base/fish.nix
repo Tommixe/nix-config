@@ -1,5 +1,5 @@
 {
-   flake.modules.nixos.base = {
+   flake.modules.nixos.fish = {
     programs.fish = {
       enable = true;
       vendor = {
