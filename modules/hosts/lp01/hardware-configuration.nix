@@ -67,6 +67,38 @@
         };
     */
 
+    fileSystems = {
+
+      "/" = {
+        device = "/dev/lvm/root";
+        fsType = "btrfs";
+        options = [
+          "subvol=root"
+          "compress=zstd"
+        ];
+      };
+
+      "/nix" = {
+        device = "/dev/lvm/root";
+        fsType = "btrfs";
+        options = [
+          "subvol=nix"
+          "noatime"
+          "compress=zstd"
+        ];
+      };
+
+      "/persist" = {
+        device = "/dev/lvm/root";
+        fsType = "btrfs";
+        options = [
+          "subvol=persist"
+          "compress=zstd"
+        ];
+        neededForBoot = true;
+      };
+    };
+
     fileSystems."/boot" = {
       device = "/dev/disk/by-uuid/3F20-F584";
       fsType = "vfat";

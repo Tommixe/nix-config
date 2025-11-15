@@ -11,7 +11,10 @@ topLevel@{
     unstable = true;
     modules = with config.flake.modules.homeManager; [
       base
-      user01
+      home-user01
+      #home-imp-user01
+      imp-home
+      imp-options
     ];
   };
 
@@ -19,6 +22,8 @@ topLevel@{
     { lib, config, ... }:
     let
       inherit (config.networking) hostName;
+      #inherit (config.environment) persistence;
+      #hasOptinPersistence = lib.hasAttr "persistence" config.environment ;
       userName = "user01";
      # homeVersion =
      #   if lib.versions.majorMinor lib.version == "25.05" then
@@ -56,8 +61,9 @@ topLevel@{
 
         extraSpecialArgs = {
           inputs = inputs;
-          configName = "nixos_${hostName}";
+          configName = "${hostName}";
           nhSwitchCommand = "nh os switch";
+          #pe = hasOptinPersistence ; 
         };
       };
 

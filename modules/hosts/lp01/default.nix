@@ -8,8 +8,9 @@
 {
   nixosHosts.lp01 = {
     unstable = true;
-    enablePersistence = true;  # Enable persistence for this host
-    modules = [ inputs.home-manager-unstable.nixosModules.default ];
+    enablePersistence = false;  # Enable persistence for this host
+    modules = [ inputs.home-manager-unstable.nixosModules.default
+         ];
   };
 
   flake.modules.nixos.host_lp01 = {

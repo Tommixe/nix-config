@@ -45,8 +45,12 @@ in
    # "kdeconnect-scripts/fortune.sh".source = "${script-fortune}/bin/fortune";
   };
 
-  home.persistence = {
-    "/persist/home/${config.home.username}".directories = [ ".config/kdeconnect" ];
-  };
+  #home.persistence = lib.mkIf (config.home ? persistence){
+  #  "/persist/home/${config.home.username}".directories = [ ".config/kdeconnect" ];
+  #};
+
+  custom.imp.home.directories = [ ".config/kdeconnect"];
+
+
 };
 }

@@ -48,10 +48,10 @@
           # https://github.com/NixOS/nixpkgs/issues/238025
           TZ = "/etc/localtime";
         };
-        persistence = {
+        #persistence = {
           # Not persisting is safer
           # "/persist/home/misterio".directories = [ ".mozilla/firefox" ];
-        };
+        #};
       };
 
       # xdg.mimeApps.defaultApplications = {

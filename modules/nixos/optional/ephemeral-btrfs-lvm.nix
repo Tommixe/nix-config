@@ -1,5 +1,11 @@
 # This file contains an ephemeral btrfs root configuration
 # TODO: perhaps partition using disko in the future
+# Assuming the LVM logical volume /dev/lvm/root is created and available
+# The btrfs subvolumes root, root-blank, nix, persist are created beforehand
+# The root-blank subvolume is a snapshot of an empty root filesystem
+# The impermanence module is used to manage persistence of /persist and other directories 
+
+
 #https://github.com/nix-community/impermanence
 {
   flake.modules.nixos.ephemeral-btrfs-lvm =

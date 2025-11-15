@@ -3,6 +3,7 @@
   homeHosts."user01@lp01" = {
     unstable = true;
     modules = with config.flake.modules.homeManager; [
+      home-user01
       host_lp01
     ];
   };
@@ -17,7 +18,7 @@
     imports = with config.flake.modules.homeManager; [
       base
       flatpaks
-      #kdeconnect
+      kdeconnect
       deluge
       playerctl
       pavucontrol
@@ -25,6 +26,9 @@
       gnome-extensions
       helix
       ghostty
+      #home-imp-user01
+      #imp-home
+      imp-options
     ];
 
     services.flatpak.packages = [
