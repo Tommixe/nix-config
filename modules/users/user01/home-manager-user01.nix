@@ -24,14 +24,14 @@ topLevel@{
 
       home-manager-input =
         if lib.versions.majorMinor lib.version == "25.05" then
-          inputs.home-manager-stable.nixosModules.default
+          inputs.home-manager.nixosModules.default
         else
           inputs.home-manager-unstable.nixosModules.default;
 
     in
     {
 
-      imports = [ home-manager-input ];
+      #imports = [ home-manager-input ];
 
       home-manager = {
         useGlobalPkgs = true;

@@ -8,9 +8,8 @@
 {
   nixosHosts.lp01 = {
     unstable = true;
-    enablePersistence = false;  # Enable persistence for this host FIXME
     modules = [ 
-      #inputs.home-manager-unstable.nixosModules.default
+    
          ];
   };
 
