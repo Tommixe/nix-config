@@ -26,7 +26,6 @@
       gnome-extensions
       helix
       ghostty
-      #home-imp-user01
       imp-home
       imp-options
     ];
