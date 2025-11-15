@@ -25,14 +25,6 @@ topLevel@{
     in
     {
     
-      #imports = [
-      #  homeVersion
-      #];
-
-      # programs = {
-      #   home-manager.enable = true;
-      #   git.enable = true;
-      # };
 
       home-manager = {
         useGlobalPkgs = true;

@@ -30,11 +30,7 @@
         */
       };
 
-      #home.persistence = lib.mkIf (config.home ? persistence){
-      #  "/persist/home/${config.home.username}".directories = [ ".ssh" ];
-      #};
-
-      # custom.imp.homeManager.directories = [ "/home/${config.home.username}/.ssh" ];
+      custom.imp.home.directories = [ ".ssh"];
 
     };
 }

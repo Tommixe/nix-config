@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.base =
-    { pkgs, config, lib, ... }:
+    { pkgs, ... }:
     {
       programs.gh = {
         enable = true;
@@ -10,13 +10,8 @@
           prompt = "enabled";
         };
       };
+
+      custom.imp.home.directories = [ ".config/gh"];
       
-      # home.persistence = {
-      #    "/persist/home/${config.home.username}".directories = [ ".config/gh" ];
-      #  };
-       
-   # home.persistence = lib.mkIf (config.home ? persistence) {
-   #     "/persist/home/${config.home.username}".directories = [ ".config/gh" ];
-   #   };
     };
 }
