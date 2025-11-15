@@ -1,8 +1,7 @@
 #https://github.com/GaetanLepage/nix-config/blob/master/modules/home/core/default.nix
 topLevel@{
-  lib,
-  config,
   inputs,
+  config,
   ...
 }:
 {
@@ -22,9 +21,17 @@ topLevel@{
     let
       inherit (config.networking) hostName;
       userName = "user01";
+
+      home-manager-input =
+        if lib.versions.majorMinor lib.version == "25.05" then
+          inputs.home-manager-stable.nixosModules.default
+        else
+          inputs.home-manager-unstable.nixosModules.default;
+
     in
     {
-    
+
+      imports = [ home-manager-input ];
 
       home-manager = {
         useGlobalPkgs = true;
