@@ -14,7 +14,7 @@
     }:
     let
       #cfg = config.custom.imp;
-      userName = "tommaso";
+      userName = config.home.username; #"tommaso";
       cfghm = config.custom.imp;
       #cfghj = config.hjem.users."ladas552".custom.imp;
     in
