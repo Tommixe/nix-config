@@ -43,9 +43,6 @@
       ];
     
 
-    facter.reportPath = ./facter.json;
-
-
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
@@ -62,7 +59,7 @@
     networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
     # Enable fractional scaling
-    services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+    services.desktopManager.gnome.extraGSettingsOverrides= ''
       [org.gnome.mutter]
       experimental-features=['scale-monitor-framebuffer', 'xwayland-native-scaling']
     '';

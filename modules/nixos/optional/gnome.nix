@@ -2,20 +2,16 @@
 
   flake.modules.nixos.gnome = {
     services = {
-      xserver = {
-        enable = true;
-        desktopManager.gnome = {
+      desktopManager.gnome = {
           enable = true;
-        };
-        displayManager.gdm = {
+        };      
+      displayManager.gdm = {
           enable = true;
           autoSuspend = false;
         };
-      };
       geoclue2.enable = true;
       gnome.gnome-remote-desktop.enable = true;
       printing.enable = true;
-
     };
 
     # Fix broken stuff
