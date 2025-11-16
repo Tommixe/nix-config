@@ -18,7 +18,6 @@
       # Import the nixos modules for the host `lp01`.
       with config.flake.modules.nixos; [
         # Modules
-        #base
         pipewire
         quietboot
         gnome
