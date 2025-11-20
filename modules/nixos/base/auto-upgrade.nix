@@ -8,7 +8,7 @@
       dates = "hourly";
       instance = "https://hydracloud.tzero.it";
       project = "nix-config";
-      jobset = "main";
+      jobset = "flakeparts";
       job = "hosts.${config.networking.hostName}";
       oldFlakeRef = "self";
     };
