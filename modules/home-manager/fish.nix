@@ -14,9 +14,9 @@
       hasNeovim = config.programs.neovim.enable;
       hasEmacs = config.programs.emacs.enable;
       hasNeomutt = config.programs.neomutt.enable;
-      hasShellColor = config.programs.shellcolor.enable;
+      #asShellColor = config.programs.shellcolor.enable;
       hasKitty = config.programs.kitty.enable;
-      shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
+      #shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
     in
     {
       programs.fish = {

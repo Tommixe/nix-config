@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, ... }:
 {
   homeHosts."user01@lp01" = {
     unstable = true;

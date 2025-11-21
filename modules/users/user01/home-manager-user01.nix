@@ -17,17 +17,10 @@ topLevel@{
   };
 
   flake.modules.nixos.home-manager-user01 =
-    { lib, config, ... }:
+    { config, ... }:
     let
       inherit (config.networking) hostName;
       userName = "user01";
-
-      home-manager-input =
-        if lib.versions.majorMinor lib.version == "25.05" then
-          inputs.home-manager.nixosModules.default
-        else
-          inputs.home-manager-unstable.nixosModules.default;
-
     in
     {
 
