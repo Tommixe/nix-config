@@ -18,7 +18,6 @@
     imports = with config.flake.modules.homeManager; [
       base
       flatpaks
-      kdeconnect
       deluge
       playerctl
       pavucontrol
