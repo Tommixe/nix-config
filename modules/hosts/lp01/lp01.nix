@@ -25,6 +25,7 @@
         gh-token
         flatpak
         printerhp
+        ssh-serve-store
         sops
         systemd-boot
         xbootldr
