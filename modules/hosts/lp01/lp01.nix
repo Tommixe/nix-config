@@ -2,13 +2,14 @@
 {
   config,
   lib,
+  inputs,
   ...
 }:
 {
   nixosHosts.lp01 = {
     unstable = true;
     modules = [ 
-    
+      inputs.home-manager-unstable.nixosModules.default
          ];
   };
 

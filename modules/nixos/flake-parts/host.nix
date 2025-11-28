@@ -45,8 +45,8 @@ in
           };
           config = {
             nixpkgs = if config.unstable then inputs.nixpkgs-unstable else inputs.nixpkgs;
-            home-manager = if config.unstable then  inputs.home-manager-unstable.nixosModules.default else  inputs.home-manager.nixosModules.default;
-            modules = if config.unstable then  [inputs.home-manager-unstable.nixosModules.default ] else [inputs.home-manager.nixosModules.default ];
+            home-manager = if config.unstable then  inputs.home-manager-unstable else  inputs.home-manager;
+            #modules = if config.unstable then  [inputs.home-manager-unstable.nixosModules.default ] else [inputs.home-manager.nixosModules.default ];
             pkgs = import config.nixpkgs {
               inherit (config) system;
               config.allowUnfree = true;
@@ -63,7 +63,7 @@ in
               config.flake.modules.nixos.base
               { networking.hostName = name; }
               (config.flake.modules.nixos."host_${name}" or { })
-              #inputs.home-manager-unstable.nixosModules.default
+              #inputs.home-manager-unstable.nixosModules.default           
             ];
           }
         )
