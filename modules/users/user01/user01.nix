@@ -63,6 +63,10 @@
 
       */  
 
+
+      # Enable persistence for user01 home directory eventually shoudl be done in home-manager module only
+      # and I should remove this, but means I need to manage the persistence of every
+      # folder in home manually
       custom.imp.root.directories = [ "/home/tommaso" ];
       
 
