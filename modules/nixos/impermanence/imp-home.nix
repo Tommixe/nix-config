@@ -19,7 +19,7 @@
       #cfghj = config.hjem.users."ladas552".custom.imp;
     in
     {
-      imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
+      imports = [ inputs.impermanence.homeManagerModules.impermanence ];
 
       home.persistence = {
         "/persist/home/${userName}" = {

@@ -54,13 +54,17 @@
         persistence."/persist/home/${username}".allowOther = true;
       };
        
-               
+             
       
       environment.persistence = {
         "/persist".directories = [ "/home/tommaso" ];
         #allowOther = true;
       };
-      */
+
+      */  
+
+      custom.imp.root.directories = [ "/home/tommaso" ];
+      
 
       #services.geoclue2.enable = true;
       #security.pam.services = { swaylock = { }; };
