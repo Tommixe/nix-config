@@ -46,7 +46,7 @@ in
           config = {
             nixpkgs = if config.unstable then inputs.nixpkgs-unstable else inputs.nixpkgs;
             home-manager = if config.unstable then  inputs.home-manager-unstable else  inputs.home-manager;
-            #modules = if config.unstable then  [inputs.home-manager-unstable.nixosModules.default ] else [inputs.home-manager.nixosModules.default ];
+            #modules = if config.unstable then [inputs.home-manager-unstable.nixosModules.default ] else  [inputs.home-manager.nixosModules.default ];
             pkgs = import config.nixpkgs {
               inherit (config) system;
               config.allowUnfree = true;
@@ -97,8 +97,14 @@ in
             hostname: options:
 
             options.nixpkgs.lib.nixosSystem {
-              inherit (options) system modules;
+              inherit (options) system ;
               specialArgs.inputs = inputs;
+               modules = options.modules ++ [
+                # Additional module here
+                
+                 options.home-manager.nixosModules.default
+                
+              ];
             };
         in
         lib.mapAttrs mkHost config.nixosHosts;
