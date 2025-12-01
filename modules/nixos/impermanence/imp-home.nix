@@ -13,10 +13,8 @@
       ...
     }:
     let
-      #cfg = config.custom.imp;
       userName = config.home.username;
       cfghm = config.custom.imp;
-      #cfghj = config.hjem.users."ladas552".custom.imp;
     in
     {
       imports = [ inputs.impermanence.homeManagerModules.impermanence ];

@@ -2,14 +2,12 @@
 {
   config,
   lib,
-  inputs,
   ...
 }:
 {
   nixosHosts.lp01 = {
     unstable = true;
     modules = [ 
-      #inputs.home-manager-unstable.nixosModules.default #FIXEME should be in host.nix and using only unstable flag there
          ];
   };
 
