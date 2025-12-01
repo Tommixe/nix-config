@@ -1,10 +1,10 @@
 {
 
   flake.modules.nixos.user01 =
-    { pkgs, config, lib, ... }:
+    { pkgs, config, ... }:
     let
       ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-      username = "tommaso";
+      username =  config.global-var.user01;
     in
     {
 
@@ -18,7 +18,6 @@
           "wheel"
           "video"
           "audio"
-          #"tommaso"
         ]
         ++ ifTheyExist [
           "minecraft"
@@ -38,7 +37,7 @@
         packages = [ pkgs.home-manager ];
       };
 
-      users.groups.tommaso.gid = 1000;
+      users.groups.${username}.gid = 1000;
 
       sops.secrets.user01-password = {
         sopsFile = ../../secrets/secrets.yaml;
@@ -57,7 +56,7 @@
              
       
       environment.persistence = {
-        "/persist".directories = [ "/home/tommaso" ];
+        "/persist".directories = [ "/home/${username}" ];
         #allowOther = true;
       };
 
@@ -67,7 +66,7 @@
       # Enable persistence for user01 home directory eventually shoudl be done in home-manager module only
       # and I should remove this, but means I need to manage the persistence of every
       # folder in home manually
-      custom.imp.root.directories = [ "/home/tommaso" ];
+      custom.imp.root.directories = [ "/home/${username}" ];
       
 
       #services.geoclue2.enable = true;
