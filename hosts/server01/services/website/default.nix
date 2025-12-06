@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 let
-  website = inputs.website.packages.${pkgs.system}.main;
+  website = inputs.website.packages.${pkgs.stdenv.hostPlatform.system}.main;
   pgpKey = ../../../../home/misterio/pgp.asc;
   sshKey = ../../../../home/misterio/ssh.pub;
   redir = {

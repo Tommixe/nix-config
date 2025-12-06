@@ -2,7 +2,7 @@
 { inputs, outputs, lib, ... }:
 let
 homeVersion =
-    if lib.versions.majorMinor lib.version == "25.05" then
+    if lib.versions.majorMinor lib.version == "25.11" then
        inputs.home-manager.nixosModules.home-manager
     else  
     inputs.home-manager-unstable.nixosModules.home-manager;

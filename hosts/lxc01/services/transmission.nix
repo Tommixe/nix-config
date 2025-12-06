@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   services.transmission = {
     enable = true;
+    package = pkgs.transmission_4;
     # home = "/srv/multimedia/transmission";
     settings.watch-dir = "/data/torrents/watch";
     settings.watch-dir-enabled = true;
