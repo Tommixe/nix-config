@@ -20,7 +20,7 @@ in
   users.users.user02.packages = with pkgs; [
     firefox
     brave
-    bitwarden
+    bitwarden-desktop
     nextcloud-client
     #steam-with-pkgs
     #gamescope
