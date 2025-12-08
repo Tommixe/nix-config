@@ -32,6 +32,7 @@
         imp # optional to enable persistence i.e. create /persist directories to be preserved by impermanence, can be used without ephemeral-btrfs-lvm
         imp-options # This module must be always turn on even if imp is off automatically add persist directories for some services
         pii
+        auto-upgrade
         hydraAutoUpgrade
         # Users
         #root
