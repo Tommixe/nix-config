@@ -20,7 +20,7 @@
         quietboot
         gnome
         cosmic
-        #wirelesspersist
+        wirelesspersist
         gh-token
         flatpak
         printerhp
@@ -34,6 +34,7 @@
         pii
         auto-upgrade
         hydraAutoUpgrade
+        yubikey
         # Users
         #root
         user01
