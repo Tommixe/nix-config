@@ -1,4 +1,6 @@
 {
+  flake.modules.nixos.duplicacy-prune =
+{
   config,
   lib,
   pkgs,
@@ -93,4 +95,5 @@ in
       };
     }) (filterAttrs (name: instance: instance.onCalendar != null) cfg.instances);
   };
+};
 }

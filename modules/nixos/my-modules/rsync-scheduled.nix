@@ -1,4 +1,5 @@
-
+{
+  flake.modules.nixos.rsync-scheduled =
 {
   config,
   lib,
@@ -140,4 +141,5 @@ in
       };
     }) (filterAttrs (name: instance: instance.onCalendar != null) cfg.instances);
   };
+};
 }

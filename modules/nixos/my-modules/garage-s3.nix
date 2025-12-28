@@ -4,6 +4,8 @@
 #https://github.com/awlsring/nix-config/blob/main/modules/system/linux/services/garage.nix
 
 {
+  flake.modules.nixos.garage-s3 =
+{
   lib,
   config,
   pkgs,
@@ -131,4 +133,5 @@ in {
       logLevel = "info";
     };
   };
+};
 }

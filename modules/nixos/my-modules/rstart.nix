@@ -1,4 +1,7 @@
 {
+  flake.modules.nixos.rstart =
+
+{
   config,
   lib,
   pkgs,
@@ -77,4 +80,5 @@ in
     
 
   };
+};
 }
