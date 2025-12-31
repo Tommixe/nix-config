@@ -35,11 +35,6 @@
         auto-upgrade
         hydraAutoUpgrade
         yubikey
-        # Users
-        #root
-        user01
-        # Home manager for users
-        home-manager-user01
       ];
     
 

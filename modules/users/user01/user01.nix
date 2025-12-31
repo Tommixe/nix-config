@@ -33,8 +33,15 @@
         ];
 
         openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh.pub) ];
+        
         hashedPasswordFile = config.sops.secrets.user01-password.path;
-        packages = [ pkgs.home-manager ];
+        
+        packages = [ 
+          pkgs.git 
+          pkgs.nix
+          pkgs.home-manager
+          ];
+      
       };
 
       users.groups.${username}.gid = 1000;
@@ -44,24 +51,7 @@
         neededForUsers = true;
       };
 
-      /*
-      home-manager.users.user01 = {
-        username = "${username}";
-        homeDirectory = lib.mkDefault "/home/${username}";
-        stateVersion = lib.mkDefault "23.05";
-        sessionPath = [ "$HOME/.local/bin" ];
-        persistence."/persist/home/${username}".allowOther = true;
-      };
-       
-             
       
-      environment.persistence = {
-        "/persist".directories = [ "/home/${username}" ];
-        #allowOther = true;
-      };
-
-      */  
-
 
       # Enable persistence for user01 home directory eventually shoudl be done in home-manager module only
       # and I should remove this, but means I need to manage the persistence of every

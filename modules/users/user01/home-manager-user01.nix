@@ -1,56 +1,30 @@
-#https://github.com/GaetanLepage/nix-config/blob/master/modules/home/core/default.nix
-topLevel@{
-  inputs,
-  config,
-  ...
-}:
+#Home manager configuration for user01
+#Define all features common to all hosts for user01 even of different OS
 {
-
-  homeHosts.user01 = {
-    unstable = true;
-    modules = with config.flake.modules.homeManager; [
-      base
-      home-user01
-      imp-home
-      imp-options
-    ];
-  };
-
-  flake.modules.nixos.home-manager-user01 =
-    { config, ... }:
+  flake.modules.homeManager.home-manager-user01 =
+    {
+      lib,
+      inputs,
+      ...
+    }:
     let
-      inherit (config.networking) hostName;
-      userName = "user01";
+      userName = inputs.pconf.global-var.user01;
     in
     {
 
-      #imports = [ home-manager-input ];
-
-      home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        backupFileExtension = "hm-backup";
-
-        users.${userName}.imports = [
-          topLevel.config.flake.modules.homeManager.base
-          topLevel.config.flake.modules.homeManager.home-user01
-          (topLevel.config.flake.modules.homeManager."host_${hostName}" or { })
-          # {
-          #   age = {
-          #     identityPaths = [ config.age.secrets.agenix-home-secret-key.path ];
-          #     rekey.hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBE+2at1NN5ahYloIOYXyEhGi6lRN4PoapQz6CNoTo0r";
-          #   };
-          # }
-        ];
-
-        extraSpecialArgs = {
-          inputs = inputs;
-          configName = "${hostName}";
-          nhSwitchCommand = "nh os switch";
-        };
+      home = {
+        username = userName;
+        stateVersion = lib.mkDefault "23.05";
+        sessionPath = [ "$HOME/.local/bin" ];
+        homeDirectory = "/home/${userName}";
       };
 
-      #custom.imp.homeManager.directories = [ "/home/${config.home.username}" ];
+
+      # Base module are imported also in host.nix but if not here
+      # it won't be available when building only home manager configuration in nixos rebuild
+      imports = with inputs.self.modules.homeManager; [
+        base
+      ];
 
     };
 }
