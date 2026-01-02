@@ -72,7 +72,7 @@ in
         baseHostModule
         {
           modules = [
-            config.flake.modules.homeManager.base
+            #config.flake.modules.homeManager.base
             (
               { pkgs, config, ... }:
               {
