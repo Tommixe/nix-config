@@ -1,6 +1,6 @@
 {
 
-  flake.modules.nixos.fail2ban =
+  flake.modules.nixos.rstart =
 
     { config, ... }:
     {

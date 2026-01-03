@@ -13,7 +13,6 @@
         nix
         openssh
         tailscale
-        systemd-initrd
         zabbix-agent
       ];
   };

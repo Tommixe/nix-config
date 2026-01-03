@@ -1,52 +1,44 @@
 {
   flake.modules.homeManager.ssh =
     {
-      outputs,
       lib,
-      config,
+      inputs,
       ...
     }:
     let
-      hostnames = builtins.attrNames outputs.nixosConfigurations;
-    in
-    {
-      programs.ssh = {
-        enable = true;
-        enableDefaultConfig = false;
+      
+      usingStable = lib.version == inputs.nixpkgs.lib.version;
 
+      ssh-options =
+        if usingStable then
+          { enable = true; }
+        else
+          {
+            enable = true;
 
-        matchBlocks."*" = {
-          forwardAgent = false;
-          addKeysToAgent = "no";
-          compression = false;
-          serverAliveInterval = 0;
-          serverAliveCountMax = 3;
-          hashKnownHosts = false;
-          userKnownHostsFile = "~/.ssh/known_hosts";
-          controlMaster = "no";
-          controlPath = "~/.ssh/master-%r@%n:%p";
-          controlPersist = "no";
-        };
+            enableDefaultConfig = false;
 
-        /*
-          matchBlocks = {
-            net = {
-              host = builtins.concatStringsSep " " hostnames;
-              forwardAgent = true;
-              remoteForwards = [{
-                bind.address = ''/%d/.gnupg-sockets/S.gpg-agent'';
-                host.address = ''/%d/.gnupg-sockets/S.gpg-agent.extra'';
-              }];
-            };
-            trusted = lib.hm.dag.entryBefore [ "net" ] {
-              host = "m7.rs *.m7.rs *.ts.m7.rs";
-              forwardAgent = true;
+            matchBlocks."*" = {
+              forwardAgent = false;
+              addKeysToAgent = "no";
+              compression = false;
+              serverAliveInterval = 0;
+              serverAliveCountMax = 3;
+              hashKnownHosts = false;
+              userKnownHostsFile = "~/.ssh/known_hosts";
+              controlMaster = "no";
+              controlPath = "~/.ssh/master-%r@%n:%p";
+              controlPersist = "no";
+
             };
           };
-        */
-      };
 
-      custom.imp.home.directories = [ ".ssh"];
+    in
+    {
+
+      programs.ssh = ssh-options;
+
+      custom.imp.home.directories = [ ".ssh" ];
 
     };
 }
