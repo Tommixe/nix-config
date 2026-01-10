@@ -57,6 +57,7 @@
         - files_external/
         - .ocdata
         - .htaccess
+        - .ncdata
         - owncloud.db
         - nextcloud.log
         - index.html
