@@ -30,6 +30,8 @@
       gnome-extensions
       helix
       ghostty
+      fastfetch
+      onedriver
       imp-home #Enable impermanence for user01
       imp-options #Enable impermanence for user01
     ];
