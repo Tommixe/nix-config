@@ -17,11 +17,10 @@
       cfghm = config.custom.imp;
     in
     {
-      imports = [ inputs.impermanence.homeManagerModules.impermanence ];
+      #imports = [ inputs.impermanence.homeManagerModules.impermanence ];
 
       home.persistence = {
-        "/persist/home/${userName}" = {
-          allowOther = true;
+        "/persist" = {
           directories = lib.unique (
             [
 

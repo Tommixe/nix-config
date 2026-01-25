@@ -3,13 +3,13 @@
 {
   flake.modules.nixos.yubikey =
     {
-      config,
+      inputs,
       lib,
       pkgs,
       ...
     }:
     let
-      userName = "${config.users.users.user01.name}";
+      userName = inputs.pconf.global-var.user01;
     in
     {
       # Enable smartcard daemon, to read TOPT tokens from yubikey

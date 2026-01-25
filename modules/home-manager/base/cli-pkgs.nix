@@ -19,7 +19,7 @@
         opentofu
         #nil # Nix LSP
         nixd # Nix daemon, for faster builds
-        nixfmt-rfc-style # Nix formatter
+        nixfmt # Nix formatter
         nix-inspect # See which pkgs are in your PATH
         nvd
         sops

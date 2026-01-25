@@ -102,7 +102,7 @@ in
                modules = options.modules ++ [
                 # Additional module here
                 
-                 options.home-manager.nixosModules.default
+                 options.home-manager.nixosModules.home-manager
                 
               ];
             };

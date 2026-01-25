@@ -1,15 +1,15 @@
 {
 
   flake.modules.nixos.user01 =
-    { pkgs, config, ... }:
+    { pkgs, config, inputs, ... }:
     let
       ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-      username =  config.global-var.user01;
+      username =  inputs.pconf.global-var.user01;
     in
     {
 
       users.mutableUsers = false;
-      users.users.user01 = {
+      users.users."${username}"= {
         name = "${username}";
         isNormalUser = true;
         uid = 1000;

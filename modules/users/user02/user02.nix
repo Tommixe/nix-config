@@ -1,14 +1,14 @@
 {
 
   flake.modules.nixos.user02 =
-    { pkgs, config, ... }:
+    { inputs, config, ... }:
     let
-      username =  config.global-var.user02;
+      username =  inputs.pconf.global-var.user02;
     in
     {
 
       users.mutableUsers = false;
-      users.users.user02 = {
+      users.users."${username}"= {
         name = "${username}";
         isNormalUser = true;
         extraGroups = [

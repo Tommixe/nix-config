@@ -7,10 +7,11 @@
 {
 
   flake.modules.nixos.home-manager-nixoshost-user01 =
-   { config, ... }:
+   { config, inputs, ... }:
    let
       inherit (config.networking) hostName;
-      userName = "user01";
+      userName = inputs.pconf.global-var.user01;
+      userNumber = "user01";
     in
     {
       imports = [ inputs.self.modules.nixos.home-manager ];
@@ -19,8 +20,8 @@
 
         users.${userName}.imports = [
 
-          inputs.self.modules.homeManager."home-manager-${userName}" # User specific home manager module
-          (inputs.self.modules.homeManager."host_${hostName}_${userName}" or { }) # Host specific home manager modules for the user
+          inputs.self.modules.homeManager."home-manager-${userNumber}" # User specific home manager module
+          (inputs.self.modules.homeManager."host_${hostName}_${userNumber}" or { }) # Host specific home manager modules for the user
 
         ];
 
