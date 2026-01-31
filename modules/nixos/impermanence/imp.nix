@@ -6,32 +6,53 @@
 #https://github.com/Ladas552/Flake-Ocean/blob/master/modules/nixosModules/Impermanence/imp.nix
 {
   flake.modules.nixos.imp =
-    { inputs, lib, config, ...}:
+    {
+      inputs,
+      lib,
+      config,
+      ...
+    }:
     let
       cfg = config.custom.imp;
+      cfghm = config.custom.imp;
       #cfghm = config.home-manager.users."ladas552".custom.imp;
       #cfghj = config.hjem.users."ladas552".custom.imp;
     in
     {
       imports = [ inputs.impermanence.nixosModules.impermanence ];
-       
-      environment.persistence  = {
+
+      environment.persistence = {
         "/persist" = {
           hideMounts = true;
           directories = lib.unique (
-          [
-            "/var/lib/systemd"
-            "/var/lib/nixos"
-            "/var/log"
-            "/srv"
-            "/var/lib/nfs"
-            "/var/lib/bluetooth"
-          ]
-          ++ cfg.root.directories
+            [
+              "/var/lib/systemd"
+              "/var/lib/nixos"
+              "/var/log"
+              "/srv"
+              "/var/lib/nfs"
+              "/var/lib/bluetooth"
+            ]
+            ++ cfg.root.directories
           );
         };
       };
-      
+
+      # https://github.com/nix-community/impermanence/issues/292
+      # Home-manager persistence option can be used only with nixos hosts.
+      home = lib.optionalAttrs (builtins.hasAttr "persistence" config.home) {
+        persistence = {
+          "/persist" = {
+            directories = lib.unique (
+              [
+
+              ]
+              ++ cfghm.home.directories
+            );
+          };
+        };
+      };
+
       programs.fuse.userAllowOther = true;
 
       system.activationScripts.persistent-dirs.text =

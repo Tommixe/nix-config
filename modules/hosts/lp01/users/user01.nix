@@ -21,6 +21,7 @@
 
 # Add host specific homeManager modules and flatpak packages for user01 on host lp01
   flake.modules.homeManager.host_lp01_user01 = {
+    
     imports = with config.flake.modules.homeManager; [
       flatpaks
       deluge
@@ -32,8 +33,6 @@
       ghostty
       fastfetch
       onedriver
-      imp-home #Enable impermanence for user01
-      imp-options #Enable impermanence for user01
     ];
 
     services.flatpak.packages = [

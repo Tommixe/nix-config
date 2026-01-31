@@ -73,6 +73,7 @@ in
         {
           modules = [
             #config.flake.modules.homeManager.base
+            config.flake.modules.homeManager.imp-options
             (
               { pkgs, config, ... }:
               {
