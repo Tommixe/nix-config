@@ -1,10 +1,6 @@
 # Home manager configuration for user01 in a nixos host
 #https://github.com/GaetanLepage/nix-config/blob/master/modules/home/core/default.nix
 {
-  inputs,
-  ...
-}:
-{
 
   flake.modules.nixos.home-manager-nixoshost-user01 =
    { config, inputs, ... }:

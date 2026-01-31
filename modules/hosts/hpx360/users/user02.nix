@@ -5,7 +5,7 @@
   homeHosts."user02@hpx360" = {
     unstable = true;
     modules = with config.flake.modules.homeManager; [
-      home-user02
+      home-manager-user02
       host_hpx360_user02
     ];
   };
