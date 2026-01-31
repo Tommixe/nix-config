@@ -7,28 +7,28 @@
 {
   flake.modules.homeManager.imp-home =
     {
-      inputs,
       lib,
       config,
       ...
     }:
     let
-      userName = config.home.username;
       cfghm = config.custom.imp;
     in
     {
-      #imports = [ inputs.impermanence.homeManagerModules.impermanence ];
 
-      home.persistence = {
-        "/persist" = {
-          directories = lib.unique (
-            [
+      # https://github.com/nix-community/impermanence/issues/292
+      # Home-manager persistence option can be used only with nixos hosts.
+      home = lib.optionalAttrs (builtins.hasAttr "persistence" config.home ) {
+        persistence = {
+          "/persist" = {
+            directories = lib.unique (
+              [
 
-            ]
-            ++ cfghm.home.directories
-          );
+              ]
+              ++ cfghm.home.directories
+            );
+          };
         };
       };
-
     };
 }
