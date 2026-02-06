@@ -20,13 +20,13 @@
   };
 
 # Add host specific homeManager modules and flatpak packages for user01 on host lxc02
-  flake.modules.homeManager.host_lxc02_user01 = {
-    imports = with config.flake.modules.homeManager; [
-      imp-home #Enable impermanence for user01
-      imp-options #Enable impermanence for user01
-    ];
-    
-  };
+#  flake.modules.homeManager.host_lxc02_user01 = {
+#    imports = with config.flake.modules.homeManager; [
+#      imp-home #Enable impermanence for user01
+#      imp-options #Enable impermanence for user01
+#    ];
+#    
+#  };
 
   
 

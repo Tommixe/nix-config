@@ -30,8 +30,6 @@
       gnome-extensions
       helix
       ghostty
-      imp-home #Enable impermanence for user01
-      imp-options #Enable impermanence for user01
     ];
 
     services.flatpak.packages = [

@@ -27,8 +27,6 @@
       pavucontrol
       firefox
       gnome-extensions
-      imp-home #Enable impermanence for user02
-      imp-options #Enable impermanence for user02
     ];
 
     services.flatpak.packages = [
