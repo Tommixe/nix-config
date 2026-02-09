@@ -24,6 +24,7 @@
       # it won't be available when building only home manager configuration in nixos rebuild
       imports = with inputs.self.modules.homeManager; [
         base
+        imp-options
       ];
 
     };
