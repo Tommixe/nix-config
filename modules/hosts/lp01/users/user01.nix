@@ -33,6 +33,7 @@
       ghostty
       fastfetch
       onedriver
+      home-pkgs
     ];
 
     services.flatpak.packages = [

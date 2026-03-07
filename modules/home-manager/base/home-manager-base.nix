@@ -13,7 +13,6 @@
         gh
         git
         hm
-        home-pkgs
         starship
         ssh
       ];
