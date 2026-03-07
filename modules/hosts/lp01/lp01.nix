@@ -19,6 +19,7 @@
         pipewire
         quietboot
         gnome
+        #kde
         cosmic
         wirelesspersist
         gh-token
