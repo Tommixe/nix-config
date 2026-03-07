@@ -5,6 +5,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -23,7 +24,7 @@ in
 
       package = mkOption {
         type = types.package;
-        default = pkgs.rstart;
+        default = inputs.self.packages.${pkgs.system}.rstart;
         description = "rstart pkg";
       };
 
