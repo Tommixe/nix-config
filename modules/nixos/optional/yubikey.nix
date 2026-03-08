@@ -18,8 +18,14 @@
       # Enable u2f over USB, for yubikey auth in browser
       #hardware.u2f.enable = true;
 
+      environment.etc."pkcs11/modules/ykcs11.module".text = ''
+        module: ${pkgs.yubico-piv-tool}/lib/libykcs11.so
+      '';
+
       environment.systemPackages = with pkgs; [
         gnupg
+        p11-kit
+        yubico-piv-tool
         yubikey-personalization
         yubioath-flutter
         yubikey-manager
