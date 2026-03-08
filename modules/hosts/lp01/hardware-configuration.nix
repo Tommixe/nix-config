@@ -19,6 +19,7 @@
           # Use https://nixos.wiki/wiki/Full_Disk_Encryption
           device = "/dev/disk/by-uuid/34c8895b-50a7-476e-8fff-c897238d5720";
           preLVM = true;
+          crypttabExtraOpts = [ "pkcs11-device=auto" ];
         };
       };
 
