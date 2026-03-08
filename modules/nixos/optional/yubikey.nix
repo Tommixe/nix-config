@@ -24,6 +24,8 @@
         yubioath-flutter
         yubikey-manager
         cryptsetup
+        pcsc-tools
+        opensc
       ];
 
       services.udev.packages = with pkgs; [
