@@ -7,7 +7,7 @@
 
       services.zabbixAgent = {
         enable = true;
-        package= lib.mkDefault pkgs.zabbix72.agent2;
+        package= lib.mkDefault pkgs.zabbix74.agent2;
         server = "cloud01";
       };
 
