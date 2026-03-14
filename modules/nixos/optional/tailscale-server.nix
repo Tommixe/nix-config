@@ -1,8 +1,12 @@
-{ config, ... }:
+
 {
-  flake.modules.nixos.tailscale-server = {
+  flake.modules.nixos.tailscale-server = 
+    { inputs, config, ... }:
+    {
     
-    imports = [ config.flake.modules.nixos.tailscale ];
+    imports = [ inputs.flake.modules.nixos.tailscale 
+    inputs.self.modules.nixos.sops
+    ];
 
     services.tailscale = {
       extraUpFlags = [
