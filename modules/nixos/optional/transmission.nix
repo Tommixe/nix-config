@@ -1,12 +1,14 @@
 {
 
   flake.modules.nixos.transmission =
-
+    { pkgs, ... }:
     {
 
       services.transmission = {
 
         enable = true;
+
+        package = pkgs.transmission_4;
 
         settings.watch-dir = "/data/torrents/watch";
 
