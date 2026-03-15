@@ -3,7 +3,8 @@
   flake.modules.nixos.hydra =
 
     {
-      inputs,    
+    
+      inputs,
       config,       
       ...
     }:
@@ -13,7 +14,7 @@
       tokenGroup = config.users.groups.nix-access-tokens.name;
     in
     {
-      imports = [ inputs.self.modules.hydra-machines ];
+      #imports = [ config.self.modules.hydra-machines ];
 
       # https://github.com/NixOS/nix/issues/5039
       nix.extraOptions = ''
