@@ -4,7 +4,6 @@
 
     {
     
-      inputs,
       config,       
       ...
     }:
@@ -28,7 +27,7 @@
         hydra = {
           enable = true;
           hydraURL = "https://hydracloud.tzero.it";
-          notificationSender = inputs.selfs.pii.user01-email01;#"cat ${config.sops.secrets.user01-email01.path}";
+          notificationSender = config.global-var.user01-email01;
           listenHost = "localhost";
           smtpHost = "localhost";
           useSubstitutes = true;

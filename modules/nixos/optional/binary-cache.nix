@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
 {
   flake.modules.nixos.binary-cache =
-
+    { config, pkgs, ... }:
     {
 
       services = {

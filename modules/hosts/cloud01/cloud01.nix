@@ -26,6 +26,7 @@
         zabbix-server
         hydra
         hydra-machines
+        acme
         binary-cache
         pii
         auto-upgrade

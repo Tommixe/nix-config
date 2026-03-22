@@ -24,7 +24,7 @@
       services.zabbixWeb = {
         enable = true;
         package = pkgs.zabbix72.web;
-        virtualHost = {
+        httpd.virtualHost = {
           listen = [
             {
               ip = "*";
