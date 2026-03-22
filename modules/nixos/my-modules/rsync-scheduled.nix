@@ -105,6 +105,10 @@ in
         '';
         serviceConfig = {
           Type = "oneshot";
+          ExecStartPre = pkgs.writeShellScript "rsync-scheduled-${name}-pre.sh" ''
+           mkdir -p ${instance.logDir}
+           : > ${instance.logDir}/rsynclogs.log
+          '';
           #ExecStart = "${cfg.package}/bin/rsync -v -e 'ssh -i ${instance.key}' ${instance.options} ${instance.source} ${instance.destination} ";
           #WorkingDirectory = instance.backupDir;
           ExecStart = "${
