@@ -29,8 +29,8 @@
               inherit system;
             };
           })
-          (final: _prev: {
-            jackett = _prev.jackett.overrideAttrs { doCheck = false; };
+          (final: prev: {
+            jackett = prev.jackett.overrideAttrs { doCheck = false; };
           })
           #inputs.nix-webapps.overlays.lib
           # inputs.deploy-rs.overlays.default

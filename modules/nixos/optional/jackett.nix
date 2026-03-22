@@ -2,7 +2,7 @@
 
   flake.modules.nixos.jackett =
 
-    { config, ... }:
+    { pkgs, ... }:
 
     {
 
@@ -11,6 +11,8 @@
         enable = true;
 
         openFirewall = true;
+
+        package = pkgs.jackett.overrideAttrs { doCheck = false; }; 
 
       };
 
