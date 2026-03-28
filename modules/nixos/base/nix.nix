@@ -3,11 +3,12 @@
     {
       lib,
       config,
+      inputs,
       ...
     }:
-    #let
-    #  flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    #in
+    let
+      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+    in
     {
       nix = {
         settings = {
@@ -49,7 +50,8 @@
 
         #TO DO to be fixed when using both unstable and stable
         # Add each flake input as a registry and nix_path
-        #registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+        # Exclude builtin nixpkgs entry to avoid conflicting nix.registry.nixpkgs.to.path
+        registry = lib.filterAttrs (name: _: name != "nixpkgs") (lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs);
         #nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
       };
 
