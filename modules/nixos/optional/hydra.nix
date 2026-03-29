@@ -26,7 +26,7 @@
       services = {
         hydra = {
           enable = true;
-          hydraURL = "https://hydracloud.tzero.it";
+          #hydraURL = "https://hydracloud.tzero.it";
           notificationSender = config.global-var.user01-email01;
           listenHost = "localhost";
           smtpHost = "localhost";
@@ -41,29 +41,7 @@
             HYDRA_DISALLOW_UNFREE = "0";
           };
         };
-        nginx.virtualHosts = {
-          "hydracloud.tzero.it" = {
-            forceSSL = true;
-            enableACME = true;
-            locations = {
-              #"~* ^/shield/([^\\s]*)".return =
-              #  "302 https://img.shields.io/endpoint?url=https://hydra.m7.rs/$1/shield";
-              "/".proxyPass = "http://localhost:${toString config.services.hydra.port}";
-              #"/".extraConfig = ''
-              #  proxy_pass http://localhost:${toString config.services.hydra.port};
-              #  proxy_set_header Host $host;
-              #  proxy_set_header X-Real-IP $remote_addr;
-              #  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-              #'';
-            };
-          };
-        };
-
-        # nginx.tailscaleAuth = {
-        #     enable = true;
-        #     #expectedTailnet = config.server.tailscale.tailnet;
-        #     virtualHosts = ["hydracloud.tzero.it"];
-        # };
+        
 
       };
       users.users = {

@@ -24,10 +24,10 @@
         nginx
         postgres
         zabbix-server
-        hydra
+        hydra-cloud
         hydra-machines
         acme
-        binary-cache
+        binary-cache-cloud
         pii
         auto-upgrade
         # portainer commented out

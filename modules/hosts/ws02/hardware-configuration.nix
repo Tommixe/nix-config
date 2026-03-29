@@ -3,6 +3,7 @@
   flake.modules.nixos.host_ws02 =
 
     {
+      modulesPath,
       inputs,
       lib,
       ...
@@ -10,9 +11,8 @@
     {
 
       imports = [
-        (inputs.modulesPath + "/installer/scan/not-detected.nix")
+        "${modulesPath}/installer/scan/not-detected.nix"
         inputs.disko.nixosModules.disko
-        inputs.nixpkgs
       ];
 
       boot = {
@@ -37,7 +37,7 @@
         };
       };
 
-      disko.devices = import ./diskconfig.nix {
+      disko.devices = import ./_diskconfig.nix {
         lib =  inputs.nixpkgs.lib;
         hostname = "ws02";
       };

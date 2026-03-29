@@ -25,10 +25,10 @@
         flatpak
         printerhp
         msmtp
-        hydra
+        hydra-local
         hydra-machines
         acme
-        binary-cache
+        binary-cache-local
         sops
         systemd-boot
         systemd-initrd
