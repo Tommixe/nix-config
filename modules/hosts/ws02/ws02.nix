@@ -2,7 +2,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 {
@@ -12,7 +11,7 @@
          ];
   };
 
-  flake.modules.nixos.host_ws02 = {
+  flake.modules.nixos.host_ws02 = {pkgs,...}:{
     imports =
       # Import the nixos modules for the host `ws02`.
       with config.flake.modules.nixos; [
