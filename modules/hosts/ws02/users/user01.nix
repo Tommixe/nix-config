@@ -30,6 +30,9 @@
       gnome-extensions
       helix
       ghostty
+      fastfetch
+      onedriver
+      home-pkgs
     ];
 
     services.flatpak.packages = [
@@ -37,7 +40,6 @@
       "md.obsidian.Obsidian"
       "io.github.nozwock.Packet"
       "com.bitwarden.desktop"
-      #"org.onlyoffice.desktopeditors"
       #"im.riot.Riot"
     ];
 
