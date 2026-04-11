@@ -6,7 +6,7 @@
 }:
 {
   nixosHosts.ws02 = {
-    unstable = false;
+    unstable = true;
     modules = [ 
          ];
   };
@@ -36,6 +36,7 @@
         imp-options # This module must be always turn on even if imp is off automatically add persist directories for some services
         pii
         auto-upgrade
+        postgres
       ];
     
     nixpkgs.config.allowUnfree = true;
