@@ -37,6 +37,7 @@
         pii
         auto-upgrade
         postgres
+        ssh-serve-store
       ];
     
     nixpkgs.config.allowUnfree = true;
