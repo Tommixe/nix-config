@@ -15,5 +15,7 @@
         sopsFile = ../../hosts/${config.networking.hostName}/secrets.yaml;
       };
 
+      systemd.services.nix-serve.environment.HOME = "/";
+
     };
 }
