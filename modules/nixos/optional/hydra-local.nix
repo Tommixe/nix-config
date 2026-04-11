@@ -14,7 +14,7 @@
 
       services = {
         hydra = {
-          hydraURL = "https://hydra.tzero.it";
+          hydraURL = "https://ws02hydra.tzero.it";
         };
         nginx.virtualHosts = {
           "hydra.tzero.it" = {

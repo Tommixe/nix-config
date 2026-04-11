@@ -7,7 +7,7 @@
 
 
       services = {
-        nginx.virtualHosts."cache.tzero.it" = {
+        nginx.virtualHosts."ws02cache.tzero.it" = {
           forceSSL = true;
           enableACME = true;
           locations."/".extraConfig = ''
