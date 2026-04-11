@@ -17,7 +17,7 @@
           hydraURL = "https://ws02hydra.tzero.it";
         };
         nginx.virtualHosts = {
-          "hydra.tzero.it" = {
+          "ws02hydra.tzero.it" = {
             forceSSL = true;
             enableACME = true;
             locations = {
