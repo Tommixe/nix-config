@@ -24,7 +24,7 @@
           sha256 = "sha256-np054+g7rQDE3sr9U8Y/piAp89ldto3pN9K+KCNMoKk=";
         }
       );
-      IPv4Whitelist = [ ];
+      IPv4Whitelist = [ config.global-var.ip-pfsense ];
       IPv6Whitelist = [ ];
       allow-interface = lib.strings.concatMapStringsSep "\n" (
         i: ''ip46tables --append ${chain} --in-interface ${i} --jump RETURN''
