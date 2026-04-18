@@ -30,6 +30,7 @@
       gnome-extensions
       helix
       ghostty
+      home-pkgs
     ];
 
     services.flatpak.packages = [

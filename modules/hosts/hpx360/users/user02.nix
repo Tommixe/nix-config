@@ -30,7 +30,7 @@
     ];
 
     services.flatpak.packages = [
-      #{ appId = "com.brave.Browser"; origin = "flathub"; }
+      { appId = "com.brave.Browser"; origin = "flathub"; }
       "md.obsidian.Obsidian"
       "io.github.nozwock.Packet"
       "com.bitwarden.desktop"
