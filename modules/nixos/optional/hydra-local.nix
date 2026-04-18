@@ -4,7 +4,7 @@
 
     {
 
-      config,
+      lib,
       inputs,
       ...
     }:
@@ -17,7 +17,7 @@
       services = {
         hydra = {
           hydraURL = "https://ws02hydra.tzero.it";
-          listenHost = "0.0.0.0";        
+          listenHost = lib.mkForce "0.0.0.0";        
         };
         
       };
