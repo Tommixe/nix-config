@@ -3,14 +3,16 @@
   flake.modules.nixos.hydra-local =
 
     {
-    
+
       config,
-      inputs,      
+      inputs,
       ...
     }:
     {
-      imports = [ inputs.self.modules.nixos.hydra ];
-
+      imports = [
+        inputs.self.modules.nixos.hydra
+        inputs.self.modules.nixos.nginx
+      ];
 
       services = {
         hydra = {
@@ -35,8 +37,6 @@
         };
 
       };
-
-
 
     };
 
