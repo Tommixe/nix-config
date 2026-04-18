@@ -17,8 +17,9 @@
       services = {
         hydra = {
           hydraURL = "https://ws02hydra.tzero.it";
+          listenHost = "0.0.0.0";        
         };
-        listenHost = "0.0.0.0";
+        
       };
 
       networking.firewall.allowedTCPPorts = [ 3000 ];
