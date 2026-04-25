@@ -1,9 +1,11 @@
-{config, ...}:
 {
-  flake.modules.nixos.tailscale-exit-node = {
-    imports = [ config.flake.modules.nixos.tailscale];
-    services.tailscale = {
-      useRoutingFeatures = "both";
+  flake.modules.nixos.tailscale-exit-node =
+    { inputs, ... }:
+    {
+      imports = [ inputs.self.modules.nixos.tailscale ];
+      
+      services.tailscale = {
+        useRoutingFeatures = "both";
+      };
     };
-  };
 }
