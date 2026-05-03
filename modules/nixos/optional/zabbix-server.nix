@@ -12,7 +12,7 @@
 
       services.zabbixServer = {
         enable = true;
-        package = pkgs.zabbix72.server;
+        package = pkgs.zabbix74.server;
         database.type = "pgsql";
         extraPackages = with pkgs; [
           nettools
@@ -23,7 +23,7 @@
 
       services.zabbixWeb = {
         enable = true;
-        package = pkgs.zabbix72.web;
+        package = pkgs.zabbix74.web;
         httpd.virtualHost = {
           listen = [
             {
@@ -50,7 +50,7 @@
       # technically not needed on the server, but good for testing.
       services.zabbixAgent = {
         enable = true;
-        package = lib.mkForce pkgs.zabbix72.agent2;
+        package = lib.mkForce pkgs.zabbix74.agent2;
         server = "cloud01";
       };
 
