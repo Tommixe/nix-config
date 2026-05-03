@@ -18,8 +18,8 @@
         docker
         #dockge
         gh-token
-       # tailscale-server
-       # tailscale-exit-node
+        tailscale-server
+        tailscale-exit-node
         msmtp
         nginx
         postgres
