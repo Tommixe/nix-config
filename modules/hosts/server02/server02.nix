@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   nixosHosts.server02 = {
     unstable = false;
@@ -21,7 +21,7 @@
 
     networking = {
       hostName = "server02";
-      useDHCP = true;
+      useDHCP = lib.mkDefault true;
       # NOTE: Static IP via sops cat-string (ip-server02) was broken in old config.
       # Re-add with literal IP if static addressing is needed.
     };

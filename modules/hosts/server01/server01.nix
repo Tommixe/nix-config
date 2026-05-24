@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   nixosHosts.server01 = {
     unstable = false;
@@ -30,7 +30,7 @@
 
     networking = {
       hostName = "server01";
-      useDHCP = true;
+      useDHCP = lib.mkDefault true;
     };
 
     nixpkgs.config.allowUnfree = true;

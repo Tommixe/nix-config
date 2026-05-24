@@ -15,6 +15,7 @@
       programs.browserpass.enable = true;
       programs.firefox = {
         enable = true;
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         profiles.${config.home.username} = {
           bookmarks = { };
           extensions.packages = with addons; [

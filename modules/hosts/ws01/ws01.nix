@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   nixosHosts.ws01 = {
     unstable = false;
@@ -23,7 +23,7 @@
 
     networking = {
       hostName = "ws01";
-      useDHCP = true;
+      useDHCP = lib.mkDefault true;
       # NOTE: Static IP block was commented out in old config.
       # Sops secrets ip-ws01, ip-router, ip-ottoserver are dropped (were only
       # used in the commented-out block).
