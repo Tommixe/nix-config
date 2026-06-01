@@ -34,7 +34,7 @@
     networking.firewall.allowedTCPPorts = [ 3389 ];
 
     programs = {
-      adb.enable = true;
+       #adb.enable = true;
       dconf.enable = true;
       kdeconnect.enable = true;
     };
