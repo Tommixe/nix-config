@@ -34,6 +34,7 @@
       fastfetch
       onedriver
       home-pkgs
+      ente-auth
     ];
 
     services.flatpak.packages = [
