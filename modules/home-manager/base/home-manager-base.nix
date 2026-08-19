@@ -7,6 +7,7 @@
       with config.flake.modules.homeManager; [
         # Modules
         bash
+        bat
         cli-pkgs
         direnv
         fish
