@@ -37,6 +37,8 @@
         auto-upgrade
         #hydraAutoUpgrade
         yubikey
+        incus
+        virt-manager
       ];
     
     nixpkgs.config.allowUnfree = true;
