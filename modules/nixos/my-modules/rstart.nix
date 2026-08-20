@@ -24,7 +24,7 @@ in
 
       package = mkOption {
         type = types.package;
-        default = inputs.self.packages.${pkgs.system}.rstart;
+        default = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.rstart;
         description = "rstart pkg";
       };
 

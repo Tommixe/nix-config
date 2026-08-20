@@ -39,7 +39,7 @@
       ];
 
       #yubikey login / sudo
-      security.pam = lib.optionalAttrs pkgs.stdenv.isLinux {
+      security.pam = lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
         u2f = {
           enable = true;
           settings = {
