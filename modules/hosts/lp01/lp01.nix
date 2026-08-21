@@ -37,7 +37,7 @@
         auto-upgrade
         #hydraAutoUpgrade
         yubikey
-        incus
+        #incus
         virt-manager
       ];
     
