@@ -35,6 +35,13 @@
         hostname = "dev01";
       };
 
+      disko.imageBuilder.imageFormat = "qcow2";
+      
+      #https://github.com/nix-community/disko/issues/192
+      virtualisation.vmVariantWithDisko = {
+        virtualisation.fileSystems."/persist".neededForBoot = true;
+      };
+
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     };
 }
