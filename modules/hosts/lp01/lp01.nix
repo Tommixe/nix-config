@@ -39,6 +39,7 @@
         yubikey
         #incus
         virt-manager
+        hermes-agent
       ];
     
     nixpkgs.config.allowUnfree = true;
