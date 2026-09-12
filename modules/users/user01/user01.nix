@@ -30,6 +30,7 @@
           "git"
           "libvirtd"
           "deluge"
+          "hermes"
         ];
 
         openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh.pub) ];

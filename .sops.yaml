@@ -81,6 +81,11 @@ creation_rules:
     key_groups:
     - age:
       - *lp01
+      - *user01
+  - path_regex: modules/nixos/optional/hermes/hermes.ya?ml$
+    key_groups:
+    - age:
+      - *lp01
       - *user01    
 
   - path_regex: modules/secrets/secrets.ya?ml$
