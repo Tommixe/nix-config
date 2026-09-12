@@ -75,6 +75,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      # PR #456 adds XBOOTLDR support (not yet merged)
+      url = "git+https://github.com/nix-community/lanzaboote?ref=refs/pull/456/head";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

@@ -27,7 +27,8 @@
         printerhp
         ssh-serve-store
         sops
-        systemd-boot
+        #systemd-boot
+        lanzaboote
         systemd-initrd
         xbootldr
         ephemeral-btrfs-lvm # This module will create an ephemeral btrfs root on top of lvm, the module imp is required to manage persistence
