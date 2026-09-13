@@ -9,8 +9,8 @@
       enable = inputs.self ? rev;
       dates = "hourly";
       instance = "https://hydracloud.tzero.it";
-      project = "flakeparts";
-      jobset = "flakeparts";
+      project = "nix-config";
+      jobset = "main";
       job = "hosts.${config.networking.hostName}";
       oldFlakeRef = "self";
     };
