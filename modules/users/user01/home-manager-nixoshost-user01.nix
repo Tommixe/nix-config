@@ -1,0 +1,51 @@
+# Home manager configuration for user01 in a nixos host
+#https://github.com/GaetanLepage/nix-config/blob/master/modules/home/core/default.nix
+{
+
+  flake.modules.nixos.home-manager-nixoshost-user01 =
+    {
+      config,
+      inputs,
+      lib,
+      ...
+    }:
+    let
+      inherit (config.networking) hostName;
+      userName = inputs.pconf.global-var.user01;
+      userNumber = "user01";
+      cfghm = inputs.self.custom.imp;
+    in
+    {
+      imports = [ inputs.self.modules.nixos.home-manager ];
+
+      home-manager = {
+
+        users.${userName} = {
+          imports = [
+
+            inputs.self.modules.homeManager."home-manager-${userNumber}" # User specific home manager module
+            (inputs.self.modules.homeManager."host_${hostName}_${userNumber}" or { }) # Host specific home manager modules for the user
+
+          ];
+
+          # https://github.com/nix-community/impermanence/issues/292
+          # Home-manager persistence option can be used only with nixos hosts.
+          home = {
+            persistence = lib.mkIf (config ? home.persistence) {
+              "/persist" = {
+                directories = lib.unique (
+                  [
+
+                  ]
+                  ++ cfghm.home.directories
+                );
+              };
+            };
+          };
+
+        };
+
+      };
+
+    };
+}
