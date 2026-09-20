@@ -34,6 +34,11 @@
 
         openFirewall = true;
 
+        settings = {
+          seed_ratio_limited = true;
+          seed_ratio_limit = 2.0;
+        };
+
       };
 
       networking.firewall.allowedTCPPorts = [
