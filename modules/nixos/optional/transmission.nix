@@ -35,8 +35,10 @@
         openFirewall = true;
 
         settings = {
-          seed_ratio_limited = true;
-          seed_ratio_limit = 2.0;
+          seed-ratio-limited = true;
+          seed-ratio-limit = 2.0;
+          ratio-limit-enabled = true;
+          rate-limit = 2.0;
         };
 
       };
