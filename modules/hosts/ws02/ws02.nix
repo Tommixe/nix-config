@@ -25,7 +25,7 @@
         printerhp
         msmtp
         hydra-local
-        hydra-machines
+        #hydra-machines
         acme
         binary-cache-local
         sops

@@ -10,7 +10,7 @@
     }:
     {
       imports = [
-        inputs.self.modules.nixos.hydra
+        inputs.self.modules.nixos.hydra-grpc
        # inputs.self.modules.nixos.nginx
       ];
 
