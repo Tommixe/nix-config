@@ -1,16 +1,16 @@
 {
 
-  flake.modules.nixos.hydra-builder-forlocal =
+  flake.modules.nixos.hydra-builder-for-local =
 
     {
 
       config,
       pkgs,
-      outputs,
+      inputs,
       ...
     }:
     let
-      coordinator = outputs.nixosConfigurations.ws02.config;
+      coordinator = inputs.self.nixosConfigurations.ws02.config;
     in
     {
 

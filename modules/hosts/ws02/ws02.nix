@@ -25,6 +25,7 @@
         printerhp
         msmtp
         hydra-local
+        hydra-builder-for-local
         #hydra-machines
         acme
         binary-cache-local
