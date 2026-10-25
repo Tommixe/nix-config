@@ -38,6 +38,7 @@
         auto-upgrade
         postgres
         ssh-serve-store
+        gradient
       ];
     
     nixpkgs.config.allowUnfree = true;
