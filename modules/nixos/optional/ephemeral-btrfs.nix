@@ -25,13 +25,13 @@
           btrfs subvolume snapshot "$MNTPOINT/root-blank" "$MNTPOINT/root"
         )
       '';
-      phase1Systemd = config.boot.initrd.systemd.enable;
+      #phase1Systemd = config.boot.initrd.systemd.enable;
     in
     {
       boot.initrd = {
         supportedFilesystems = [ "btrfs" ];
-        postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
-        systemd.services.restore-root = lib.mkIf phase1Systemd {
+        #postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
+        systemd.services.restore-root = { ## lib.mkIf phase1Systemd {
           description = "Rollback btrfs rootfs";
           wantedBy = [ "initrd.target" ];
           requires = [ "dev-disk-by\\x2dlabel-${hostname}.device" ];

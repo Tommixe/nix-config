@@ -81,6 +81,11 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    gradient = {
+      url = "github:wavelens/gradient/latest";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
