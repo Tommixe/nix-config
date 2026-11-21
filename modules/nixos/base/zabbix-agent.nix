@@ -8,7 +8,7 @@
       services.zabbixAgent = {
         enable = true;
         package= lib.mkDefault pkgs.zabbix74.agent2;
-        server = "cloud01";
+        server = "cloud01,127.0.0.1";
       };
 
       networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 10050 ];
