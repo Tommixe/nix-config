@@ -51,7 +51,7 @@
       services.zabbixAgent = {
         enable = true;
         package = lib.mkForce pkgs.zabbix74.agent2;
-        server = "cloud01";
+        server = "cloud01,127.0.0.1";
       };
 
       # Open necessary ports
