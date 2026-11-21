@@ -42,7 +42,7 @@
         # '';
 
         gc = {
-          automatic = lib.mkIf (!config.programs.nh.enable) true;
+          automatic = true;
           dates = "weekly";
           # Delete older generations too
           options = "--delete-older-than 7d";
