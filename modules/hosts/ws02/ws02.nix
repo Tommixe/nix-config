@@ -24,6 +24,7 @@
         flatpak
         printerhp
         msmtp
+        #nginx
         hydra-local
         hydra-builder-for-local
         #hydra-machines
@@ -39,7 +40,7 @@
         auto-upgrade
         postgres
         ssh-serve-store
-        gradient
+        #gradient
       ];
     
     nixpkgs.config.allowUnfree = true;

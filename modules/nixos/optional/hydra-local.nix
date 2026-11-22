@@ -17,7 +17,7 @@
       services = {
         hydra = {
           hydraURL = "https://ws02hydra.tzero.it";
-          listenHost = lib.mkForce "0.0.0.0";
+          listenHost = lib.mkForce "*"; #lib.mkForce "0.0.0.0";
           port = 4000; #changed defualt port for running gradient and hydra on the same machine, gradient runs on 3000       
         };
         
