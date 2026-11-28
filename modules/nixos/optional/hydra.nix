@@ -4,7 +4,9 @@
 
     {
     
-      config,       
+      config,
+      inputs,
+      pkgs,      
       ...
     }:
     let
@@ -27,6 +29,7 @@
         hydra = {
           enable = true;
           #hydraURL = "https://hydracloud.tzero.it";
+          package = inputs.nixpkgs-unstable.legacyPackages.${pkgs.stdenv.hostPlatform.system}.hydra; #FIXME: use hydra from nixpkgs-unstable until hydra is updated in nixpkgs-26.05
           notificationSender = config.global-var.user01-email01;
           listenHost = "localhost";
           smtpHost = "localhost";
